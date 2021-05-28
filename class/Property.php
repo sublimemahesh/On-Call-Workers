@@ -9,7 +9,7 @@
 /**
  * Description of Property
  *
- * @author Suharshana DsW
+ * @author W j K n``
  */
 class Property {
 
