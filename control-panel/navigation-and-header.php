@@ -335,7 +335,26 @@
 
                     </ul>
                 </li>
-               
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Jobs</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="manage-jobs.php?type=0">
+                                <i class="material-icons">list</i>
+                                <span>Pending Jobs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-jobs.php?type=">
+                                <i class="material-icons">list</i>
+                                <span>Assigned Jobs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">location_on</i>

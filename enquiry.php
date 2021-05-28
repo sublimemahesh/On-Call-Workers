@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+include './class/include.php';
+
+$CATEGORY = new Category(NULL);
+$DISTRICT = new District(NULL);
+?>
 
 <head>
     <title>On Call Workers | Enquiry</title>
@@ -12,31 +18,19 @@
     <link rel="stylesheet" href="css/main.css" id="color-switcher-link">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="control-panel/plugins/sweetalert/sweetalert.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-
-    <!--[if lt IE 9]>
-        <script src="js/vendor/html5shiv.min.js"></script>
-        <script src="js/vendor/respond.min.js"></script>
-    <![endif]-->
-
 </head>
+
 <body>
-
-
-
-
     <!-- wrappers for visual page editor and boxed version of template -->
     <div id="canvas">
         <div id="box_wrapper">
 
             <!-- template sections -->
-
-
-
             <?php
             include './header2.php';
             ?>
-
             <section class="page_breadcrumbs ds ms parallax section_padding_top_50 section_padding_bottom_40">
                 <div class="container">
                     <div class="row">
@@ -56,22 +50,48 @@
                 </div>
             </section>
 
-
-
-
             <section class="ls  section_padding_top_75 section_padding_bottom_15">
                 <div class="container">
-
-
                     <div class="row">
                         <div class="col-sm-12 to_animate">
-                            <form class="contact-form" method="post" action="#">
-                                 <p class="contact-form-topic">
-                                    <select class="form-control" name="type" id="service_type">
-                                        <option value=""> --Please Select the service type -- </option>
-                                        <option value="id">
-                                            Computer Repair
-                                        </option> 
+                            <form class="contact-form" method="post" action="#" id="enquiry-form">
+                                <p class="contact-form-topic">
+                                    <select class="form-control" name="category" id="category">
+                                        <option value=""> --Please Select the category -- </option>
+                                        <?php
+                                        foreach ($CATEGORY->all() as $category) {
+                                        ?>
+                                            <option value="<?= $category['id']; ?>"><?= $category['name']; ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </p>
+                                <p class="contact-form-topic">
+                                    <select class="form-control" name="sub_category" id="sub_category">
+                                        <option value=""> --Please Select the sub category -- </option>
+
+                                    </select>
+                                </p>
+                                <p class="contact-form-message">
+                                    <textarea aria-required="true" rows="8" cols="45" name="description" id="description" class="form-control" placeholder="How we may help you"></textarea>
+                                </p>
+                                <p class="contact-form-topic">
+                                    <select class="form-control" name="district" id="district">
+                                        <option value=""> --Please Select the district -- </option>
+                                        <?php
+                                        foreach ($DISTRICT->all() as $district) {
+                                        ?>
+                                            <option value="<?= $district['id']; ?>"><?= $district['name']; ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </p>
+                                <p class="contact-form-topic">
+                                    <select class="form-control" name="city" id="city">
+                                        <option value=""> --Please Select the city -- </option>
+
                                     </select>
                                 </p>
 
@@ -84,38 +104,22 @@
                                 <p class="contact-form-phone">
                                     <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder="Phone Number">
                                 </p>
-                              
-                                <p class="contact-form-topic">
-                                    <select class="form-control" name="type" id="city_type">
-                                        <option value=""> --Please Select the city -- </option>
-                                        <option value="id">
-                                            Galle
-                                        </option> 
-                                    </select>
-                                </p>
 
-                                <p class="contact-form-message">
-                                    <textarea aria-required="true" rows="8" cols="45" name="job_description" id="message" class="form-control" placeholder="Job Description"></textarea>
-                                </p>
                                 <div class="row">
                                     <div class="col-sm-12">
 
                                         <p class="contact-form-submit text-center topmargin_30">
-                                            <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button round-icon-big round-icon colormain colordark">Send Request<i class="rt-icon2-tick-outline"></i></button>
+                                            <input type="hidden" name="create" value="create" />
+                                            <button type="submit" id="submit" name="contact_submit" class="theme_button round-icon-big round-icon colormain colordark">Send Request<i class="rt-icon2-tick-outline"></i></button>
                                         </p>
                                     </div>
 
                                 </div>
                             </form>
                         </div>
-
                     </div>
-
-
                 </div>
             </section>
-
-
             <?php
             include './footer.php';
             ?>
@@ -127,11 +131,14 @@
         <div class="preloader_image"></div>
     </div>
 
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/compressed.js"></script>
+    <script src="js/compressed.js"></script>
     <script src="js/main.js"></script>
-<!--    <script src="js/switcher.js"></script>-->
+    <script src="js/city.js"></script>
+    <script src="js/sub-category.js"></script>
+    <script src="js/enquiry.js"></script>
+    <script src="control-panel/plugins/sweetalert/sweetalert.min.js"></script>
+    <!--    <script src="js/switcher.js"></script>-->
 
 </body>
-
 
 </html>

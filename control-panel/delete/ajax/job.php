@@ -5,9 +5,9 @@ include_once(dirname(__FILE__) . '/../../auth.php');
 
 if ($_POST['option'] == 'delete') {
 
-    $SLIDER = new Slider($_POST['id']);
+    $JOB = new Job($_POST['id']);
   
-      $result = $PROPERTIES->delete();
+      $result = $JOB->delete();
 
     if ($result) {
         $data = array("status" => TRUE);
