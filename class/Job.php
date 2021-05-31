@@ -11,7 +11,8 @@
  *
  * @author W j K n``
  */
-class Job {
+class Job
+{
 
     public $id;
     public $createdAt;
@@ -27,7 +28,8 @@ class Job {
     public $supervisor;
     public $assignedAt;
 
-    public function __construct($id) {
+    public function __construct($id)
+    {
         if ($id) {
 
             $query = "SELECT * FROM `job` WHERE `id`=" . $id;
@@ -54,33 +56,34 @@ class Job {
         }
     }
 
-    public function create() {
+    public function create()
+    {
         date_default_timezone_set('Asia/Colombo');
         $createdAt = date('Y-m-d H:i:s');
         $db = new Database();
 
         $query = "INSERT INTO `job` ("
-                . "`created_at`,"
-                . "`category`,"
-                . "`sub_category`,"
-                . "`description`,"
-                . "`district`,"
-                . "`city`,"
-                . "`name`,"
-                . "`email`,"
-                . "`phone`,"
-                . "`status`"
-                . ") VALUES  ('"
-                . $createdAt . "','"
-                . $this->category . "', '"
-                . $this->sub_category . "', '"
-                . mysql_real_escape_string($this->description) . "', '"
-                . $this->district . "', '"
-                . $this->city . "', '"
-                . $this->name . "', '"
-                . mysql_real_escape_string($this->email) . "', '"
-                . mysql_real_escape_string($this->phone) . "', '"
-                . 0 . "')";
+            . "`created_at`,"
+            . "`category`,"
+            . "`sub_category`,"
+            . "`description`,"
+            . "`district`,"
+            . "`city`,"
+            . "`name`,"
+            . "`email`,"
+            . "`phone`,"
+            . "`status`"
+            . ") VALUES  ('"
+            . $createdAt . "','"
+            . $this->category . "', '"
+            . $this->sub_category . "', '"
+            . mysql_real_escape_string($this->description) . "', '"
+            . $this->district . "', '"
+            . $this->city . "', '"
+            . $this->name . "', '"
+            . mysql_real_escape_string($this->email) . "', '"
+            . mysql_real_escape_string($this->phone) . "', '"
+            . 0 . "')";
 
 
         $result = $db->readQuery($query);
@@ -95,7 +98,8 @@ class Job {
         }
     }
 
-    public function all() {
+    public function all()
+    {
 
         $query = "SELECT * FROM `job` ORDER BY `id` DESC";
         $db = new Database();
@@ -109,7 +113,8 @@ class Job {
         return $array_res;
     }
 
-    public function getAllPendingJobs() {
+    public function getAllPendingJobs()
+    {
 
         $query = "SELECT j.*,c.name category_name,sc.name sub_category_name FROM `job` j, `category` c , `sub_category` sc WHERE c.id = j.category AND sc.id = j.sub_category AND j.status = 0 ORDER BY `id` DESC";
         $db = new Database();
@@ -123,7 +128,8 @@ class Job {
         return $array_res;
     }
 
-    public function getAllAssignedJobs() {
+    public function getAllAssignedJobs()
+    {
 
         $query = "SELECT j.*,c.name category_name,sc.name sub_category_name FROM `job` j, `category` c , `sub_category` sc WHERE c.id = j.category AND sc.id = j.sub_category AND j.status = 1 ORDER BY  `id` DESC";
         $db = new Database();
@@ -137,11 +143,26 @@ class Job {
         return $array_res;
     }
 
+    public function getJobsBySupervisorAndStatus($supervisor, $status) {
 
-    public function AssignJob($job, $supervisor) {
+        $query = "SELECT j.*,c.name category_name,sc.name sub_category_name FROM `job` j, `category` c , `sub_category` sc WHERE c.id = j.category AND sc.id = j.sub_category AND j.status = $status AND j.supervisor = $supervisor ORDER BY `id` DESC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
 
-        $query = "UPDATE `job` SET  `supervisor`= $supervisor AND `status` = 1 WHERE `id` = $job";
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
 
+        return $array_res;
+    }
+
+    public function AssignSupervisor()
+    {
+        date_default_timezone_set('Asia/Colombo');
+        $assignedAt = date('Y-m-d H:i:s');
+        $query = "UPDATE `job` SET  `supervisor`= $this->supervisor, `assigned_at` = '" . $assignedAt . "', `status` = 1 WHERE `id` = $this->id";
+        // dd($query);
         $db = new Database();
 
         $result = $db->readQuery($query);
@@ -155,20 +176,21 @@ class Job {
         }
     }
 
-    public function update() {
-        
+    public function update()
+    {
+
         $db = new Database();
         $query = "UPDATE  `job` SET "
-                . "`category` ='" . $this->category . "', "
-                . "`sub_category` ='" . $this->sub_category . "', "
-                . "`district` ='" . $this->district . "', "
-                . "`city` ='" . $this->city . "', "
-                . "`description` ='" . mysql_real_escape_string($this->description) . "', "
-                . "`name` ='" . $this->name . "', "
-                . "`email` ='" . $this->email . "', "
-                . "`phone` ='" . mysql_real_escape_string($this->phone) . "', "
-                . "`status` ='" . 0 . "' "
-                . "WHERE `id` = '" . $this->id . "'";
+            . "`category` ='" . $this->category . "', "
+            . "`sub_category` ='" . $this->sub_category . "', "
+            . "`district` ='" . $this->district . "', "
+            . "`city` ='" . $this->city . "', "
+            . "`description` ='" . mysql_real_escape_string($this->description) . "', "
+            . "`name` ='" . $this->name . "', "
+            . "`email` ='" . $this->email . "', "
+            . "`phone` ='" . mysql_real_escape_string($this->phone) . "', "
+            . "`status` ='" . 0 . "' "
+            . "WHERE `id` = '" . $this->id . "'";
 
 
         $result = $db->readQuery($query);
@@ -180,12 +202,12 @@ class Job {
         }
     }
 
-    public function delete() {
+    public function delete()
+    {
 
         $query = 'DELETE FROM `job` WHERE id="' . $this->id . '"';
         $db = new Database();
 
         return $db->readQuery($query);
     }
-
 }

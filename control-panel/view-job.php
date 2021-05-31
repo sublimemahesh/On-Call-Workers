@@ -96,13 +96,23 @@ $SUPERVISOR = new Supervisor($JOB->supervisor);
                                                     <td><?= $JOB->email; ?></td>
                                                 </tr>
                                                 <tr>
+                                                    <th>Phone</th>
+                                                    <td><?= $JOB->phone; ?></td>
+                                                </tr>
+                                                <tr>
                                                     <th>Status</th>
                                                     <td>
                                                         <?php
                                                         if ($JOB->status == 0) {
                                                             echo 'Pending';
                                                         } else if ($JOB->status == 1) {
-                                                            echo 'Approved';
+                                                            echo 'Assigned';
+                                                        } else if ($JOB->status == 2) {
+                                                            echo 'Processing';
+                                                        } else if ($JOB->status == 3) {
+                                                            echo 'Confirmed';
+                                                        } else if ($JOB->status == 4) {
+                                                            echo 'Completed';
                                                         }
                                                         ?>
                                                     </td>
@@ -116,7 +126,7 @@ $SUPERVISOR = new Supervisor($JOB->supervisor);
                                                     </tr>
                                                     <tr>
                                                         <th>Asigned At</th>
-                                                        <td><?= $Job->assignedAt; ?></td>
+                                                        <td><?= $JOB->assignedAt; ?></td>
                                                     </tr>
                                                 <?php
                                                 }

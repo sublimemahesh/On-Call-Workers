@@ -1,5 +1,5 @@
 <!-- Start Header Section -->
-<header>  
+<header>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="mobile-container visible-xs">
@@ -15,15 +15,16 @@
                     </li>
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggler" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            My Properties
+                            Jobs
                             <i class="fa fa-angle-down"></i>
-<!--                            <i class="fa fa-angle-right"></i>-->
+                            <!--                            <i class="fa fa-angle-right"></i>-->
                         </a>
                         <div class="sub-menu dropdown-menu">
                             <ul class="all-menu toggle-submenu">
-                                <li><a href="add-new-property.php">Add New</a></li>
-                                <li><a href="manage-properties.php?status=0">Manage Pending Properties</a></li>
-                                <li><a href="manage-properties.php?status=1">Manage Approved Properties</a></li>
+                                <li><a href="manage-jobs.php?status=1">Manage Pending Jobs</a></li>
+                                <li><a href="manage-jobs.php?status=2">Manage Processing Jobs</a></li>
+                                <li><a href="manage-jobs.php?status=3">Manage Confirmed Jobs</a></li>
+                                <li><a href="manage-jobs.php?status=4">Manage Completed Jobs</a></li>
                             </ul>
                         </div>
                     </li>
@@ -34,7 +35,7 @@
                         <a class="nav-link dropdown-toggler" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             My Profile
                             <i class="fa fa-angle-down"></i>
-<!--                            <i class="fa fa-angle-right"></i>-->
+                            <!--                            <i class="fa fa-angle-right"></i>-->
                         </a>
                         <div class="sub-menu dropdown-menu">
                             <ul class="all-menu toggle-submenu">
@@ -70,15 +71,16 @@
                                     </li>
                                     <li class="dropdown">
                                         <a class="nav-link dropdown-toggler" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            My Properties
+                                            Jobs
                                             <i class="fa fa-angle-down"></i>
                                             <i class="fa fa-angle-right"></i>
                                         </a>
                                         <div class="sub-menu dropdown-menu">
                                             <ul class="all-menu">
-                                                <li><a href="add-new-property.php">Add New</a></li>
-                                                <li><a href="manage-properties.php?status=0">Manage Pending Properties</a></li>
-                                                <li><a href="manage-properties.php?status=1">Manage Approved Properties</a></li>
+                                                <li><a href="manage-jobs.php?status=1">Manage Pending Jobs</a></li>
+                                                <li><a href="manage-jobs.php?status=2">Manage Processing Jobs</a></li>
+                                                <li><a href="manage-jobs.php?status=3">Manage Confirmed Jobs</a></li>
+                                                <li><a href="manage-jobs.php?status=4">Manage Completed Jobs</a></li>
                                             </ul>
                                         </div>
                                     </li>
