@@ -1,5 +1,12 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
+<?php
+include './class/include.php';
+
+$ABOUT = new Page(1);
+$VISION = new Page(2);
+$MISSION = new Page(2);
+?>
 <head>
     <title>On Call Workers</title>
     <meta charset="utf-8">
@@ -71,9 +78,7 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p>At vero eos et accusam et justo duo dolores et ea rebum tet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
-                                                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam </p> 
+                                                    <?= $ABOUT->description; ?>
                                                 </div> 
                                                 <div class="row">
                                                     <div class="tab-content no-border">
@@ -91,7 +96,7 @@
                                                                         </div>
                                                                         <div id="collapse1" class="panel-collapse collapse in">
                                                                             <div class="panel-body">
-                                                                                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet lorem ipsum dolor sit amet, consetetur sadipscing.
+                                                                            <?= $VISION->description; ?>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -105,7 +110,7 @@
                                                                         </div>
                                                                         <div id="collapse2" class="panel-collapse collapse">
                                                                             <div class="panel-body">
-                                                                                Providing ONCALL services of all domestic & related needs of all unforeseen situation with a guarantee of quality.
+                                                                            <?= $MISSION->description; ?>
                                                                             </div>
                                                                         </div>
                                                                     </div>
