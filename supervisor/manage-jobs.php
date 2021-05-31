@@ -97,7 +97,8 @@ $SUPERVISOR = new Supervisor($_SESSION["m_id"]);
                                         <td><?php echo $DISTRICT->name; ?> </td>
                                         <td><?php echo $job['name']; ?> </td>
                                         <td class="text-center">
-                                            <a href="view-job.php?id=<?= $job['id']; ?>" class="edit-property btn btn-sm btn-warning" title="View Property" data-id=""> <i class="fa fa-eye"></i></a> |
+                                            <a href="view-job.php?id=<?= $job['id']; ?>" class="edit-property btn btn-sm btn-warning" title="View Job" data-id=""> <i class="fa fa-eye"></i></a> |
+                                            <a href="manage-quotations.php?id=<?= $job['id']; ?>" class="edit-property btn btn-sm btn-info" title="Add Quotation" data-id=""> <i class="fa fa-usd"></i></a> |
                                             <!-- <a class="delete-property btn btn-sm btn-danger" title="Delete Property" data-id="<?= $job['id']; ?>"> <i class="fa fa-trash"></i></a> -->
                                         </td>
                                     </tr>
@@ -135,7 +136,7 @@ $SUPERVISOR = new Supervisor($_SESSION["m_id"]);
     <!-- Custom css -->
     <script src="js/custom.js" type="text/javascript"></script>
     <script src="js/city.js" type="text/javascript"></script>
-    <script src="js/property.js" type="text/javascript"></script>
+    <script src="js/quotation.js" type="text/javascript"></script>
     <script src="js/email-verification.js" type="text/javascript"></script>
 </body>
 
