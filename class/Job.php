@@ -156,12 +156,43 @@ class Job
 
         return $array_res;
     }
+    public function getJobsByStatus($status) {
+
+        $query = "SELECT j.*,c.name category_name,sc.name sub_category_name FROM `job` j, `category` c , `sub_category` sc WHERE c.id = j.category AND sc.id = j.sub_category AND j.status = $status ORDER BY `id` DESC";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
 
     public function AssignSupervisor()
     {
         date_default_timezone_set('Asia/Colombo');
         $assignedAt = date('Y-m-d H:i:s');
         $query = "UPDATE `job` SET  `supervisor`= $this->supervisor, `assigned_at` = '" . $assignedAt . "', `status` = 1 WHERE `id` = $this->id";
+        // dd($query);
+        $db = new Database();
+
+        $result = $db->readQuery($query);
+
+        if ($result) {
+
+            return TRUE;
+        } else {
+
+            return FALSE;
+        }
+    }
+    public function updateStatus()
+    {
+        date_default_timezone_set('Asia/Colombo');
+        $assignedAt = date('Y-m-d H:i:s');
+        $query = "UPDATE `job` SET  `status` = $this->status WHERE `id` = $this->id";
         // dd($query);
         $db = new Database();
 

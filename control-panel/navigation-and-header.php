@@ -353,6 +353,24 @@
                                 <span>Assigned Jobs</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="manage-jobs.php?type=2">
+                                <i class="material-icons">list</i>
+                                <span>Processing Jobs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-jobs.php?type=3">
+                                <i class="material-icons">list</i>
+                                <span>Confirmed Jobs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-jobs.php?type=4">
+                                <i class="material-icons">list</i>
+                                <span>Completed Jobs</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>

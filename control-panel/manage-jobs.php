@@ -7,11 +7,20 @@ include_once(dirname(__FILE__) . '/auth.php');
 $title = "Manage";
 if (isset($_GET['type'])) {
     if ($_GET['type'] == 0) {
-        $jobs = Job::getAllPendingJobs();
+        $jobs = Job::getJobsByStatus(0);
         $title = "Pending";
     } elseif ($_GET['type'] == 1) {
-        $jobs = Job::getAllAssignedJobs();
+        $jobs = Job::getJobsByStatus(1);
         $title = "Assigned";
+    } elseif ($_GET['type'] == 2) {
+        $jobs = Job::getJobsByStatus(2);
+        $title = "Processing";
+    } elseif ($_GET['type'] == 3) {
+        $jobs = Job::getJobsByStatus(3);
+        $title = "Confirmed";
+    } elseif ($_GET['type'] == 4) {
+        $jobs = Job::getJobsByStatus(4);
+        $title = "Completed";
     }
 }
 

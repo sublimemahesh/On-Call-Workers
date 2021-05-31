@@ -17,6 +17,8 @@ include_once(dirname(__FILE__) . '/Message.php');
 include_once(dirname(__FILE__) . '/Page.php');
 include_once(dirname(__FILE__) . '/Property.php');
 include_once(dirname(__FILE__) . '/PropertyPhoto.php');
+include_once(dirname(__FILE__) . '/Quotation.php');
+include_once(dirname(__FILE__) . '/QuotationItem.php');
 include_once(dirname(__FILE__) . '/Service.php');
 include_once(dirname(__FILE__) . '/Setting.php');
 include_once(dirname(__FILE__) . '/Slider.php');
