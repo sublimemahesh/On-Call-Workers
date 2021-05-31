@@ -14,7 +14,7 @@ class Database {
     private $password = '';
 
 //    private $host = 'localhost';
-//    private $name = 'synoteca_srilankaproperties';
+//    private $name = 'synoteca_oncall';
 //    private $user = 'synoteca_main';
 //    private $password = '3rTI#)-vDmAKczXQ-J';
 

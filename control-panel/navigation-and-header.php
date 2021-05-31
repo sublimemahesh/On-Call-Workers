@@ -348,7 +348,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="manage-jobs.php?type=">
+                            <a href="manage-jobs.php?type=1">
                                 <i class="material-icons">list</i>
                                 <span>Assigned Jobs</span>
                             </a>

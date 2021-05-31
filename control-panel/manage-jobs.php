@@ -102,9 +102,17 @@ if (isset($_GET['type'])) {
                                                             <td><?= $job['name']; ?></td>
                                                             <td><?= $name; ?></td>
                                                             <td>
-                                                                <a href="edit-property.php?id=<?php echo $job['id']; ?>"> <button class="glyphicon glyphicon-pencil arrange-btn" title="Assign Supervisor"></button></a>
+                                                                <?php
+                                                                if ($_GET['type'] == 0) {
+                                                                ?>
+                                                                    <a href="#" class="assign-supervisor" data-id="<?php echo $job['id']; ?>"> <button type="button" class="glyphicon glyphicon-user arrange-btn" title="Assign Supervisor"> </button> </a>
+                                                                    <a href="#" class="delete-job" data-id="<?= $job['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn" title="Delete this Property"></button></a>
+                                                                <?php
+                                                                }
+                                                                ?>
+
                                                                 <a href="view-job.php?id=<?php echo $job['id']; ?>"> <button class="glyphicon glyphicon-eye-open edit-btn" title="View Job"></button></a>
-                                                                <a href="#" class="delete-job" data-id="<?= $job['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn" title="Delete this Property"></button></a>
+
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>
@@ -142,16 +150,14 @@ if (isset($_GET['type'])) {
     <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-    <script src="delete/js/properties.js" type="text/javascript"></script>
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
 
-    <script src="js/demo.js"></script>
-
     <script src="plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    <!-- <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script> -->
     <script src="js/pages/ui/dialogs.js"></script>
-    <script src="js/demo.js"></script>
+    <!-- <script src="js/demo.js"></script> -->
+    <script src="js/job.js" type="text/javascript"></script>
     <script src="delete/js/job.js" type="text/javascript"></script>
 </body>
 

@@ -77,3 +77,15 @@ if ($_POST['option'] == "INACTIVEMEMBER") {
         exit;
     }
 }
+if ($_POST['option'] == "GETALLSUPERVISORS") {
+    $supervisors = Supervisor::all();
+// foreach($supervisors as $supervisor) {
+
+// }
+// $arr1 = array();
+// $arr1 = ['#ff0000': 'Red'],
+// '#00ff00': 'Green',
+// '#0000ff': 'Blue'];
+    echo json_encode($supervisors);
+    exit;
+}
