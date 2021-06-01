@@ -84,7 +84,7 @@ $visitor_message = '<html xmlns="http://www.w3.org/1999/xhtml">
                                                                             </tbody></table>
                                                                     </td>
                                                                 </tr><tr> 
-                                                                    <td style="font-size:20px;color:#33468f;line-height:28px;font-family:Arial,Helvetica,sans-serif;padding-bottom:20px;padding-top: 0px;font-weight: 600;" align="left"> Thank You ! </td> 
+                                                                    <td style="font-size:20px;color:#33468f;line-height:28px;font-family:Arial,Helvetica,sans-serif;padding-bottom:20px;padding-top: 0px;font-weight: 600;" align="left"> ' . $visitorSubject . ' </td> 
                                                                 </tr>
                                                             </tbody> 
                                                         </table> 
@@ -256,7 +256,7 @@ $company_message = '<html xmlns="http://www.w3.org/1999/xhtml">
                                                                             </tbody></table>
                                                                     </td>
                                                                 </tr><tr> 
-                                                                    <td style="font-size:20px;color:#33468f;line-height:28px;font-family:Arial,Helvetica,sans-serif;padding-bottom:20px;padding-top: 0px;font-weight: 600;" align="left"> ' . $visitor_subject . ' </td> 
+                                                                    <td style="font-size:20px;color:#33468f;line-height:28px;font-family:Arial,Helvetica,sans-serif;padding-bottom:20px;padding-top: 0px;font-weight: 600;" align="left"> ' . $visitorSubject . ' </td> 
                                                                 </tr>
                                                             </tbody> 
                                                         </table> 
@@ -272,7 +272,7 @@ $company_message = '<html xmlns="http://www.w3.org/1999/xhtml">
                                                         <table style="background-color:#f5f7fa" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#F5F7FA"> 
                                                             <tbody> 
                                                                 <tr> 
-                                                                    <td style="word-wrap:break-word;font-size:14px;color:#333;line-height:18px;font-family:Arial,Helvetica,sans-serif;padding:10px 20px" align="left"> <p> You have a new inquiry from website.Kindly request your attention on this matter.The details of the inquiry are shown bellow</p></td> 
+                                                                    <td style="word-wrap:break-word;font-size:14px;color:#333;line-height:18px;font-family:Arial,Helvetica,sans-serif;padding:10px 20px" align="left"> <p> You have a new inquiry from website. Kindly request your attention on this matter. The details of the inquiry are shown bellow.</p></td> 
                                                                 </tr> 
 
 
@@ -382,4 +382,3 @@ $company_message = '<html xmlns="http://www.w3.org/1999/xhtml">
     </body>
 
 </html>';
-?>
