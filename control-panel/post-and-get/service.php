@@ -15,14 +15,15 @@ if (isset($_POST['create'])) {
     $handle = new Upload($_FILES['image']);
 
     $imgName = null;
+    $iconName = null;
 
     if ($handle->uploaded) {
         $handle->image_resize = true;
         $handle->file_new_name_ext = 'jpg';
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = Helper::randamId();
-        $handle->image_x = 600;
-        $handle->image_y = 400;
+        $handle->image_x = 100;
+        $handle->image_y = 100;
 
         $handle->Process($dir_dest);
 
@@ -31,6 +32,7 @@ if (isset($_POST['create'])) {
             $imgName = $handle->file_dst_name;
         }
     }
+
     $SERVICE->image_name = $imgName;
     $VALID->check($SERVICE, [
         'title' => ['required' => TRUE],
@@ -73,8 +75,8 @@ if (isset($_POST['update'])) {
         $handle->file_new_name_ext = FALSE;
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $_POST["oldImageName"];
-        $handle->image_x = 600;
-        $handle->image_y = 400;
+        $handle->image_x = 100;
+        $handle->image_y = 100;
 
         $handle->Process($dir_dest);
 

@@ -1,7 +1,15 @@
 <!DOCTYPE html>
+<?php
+include './class/include.php';
+$id = '';
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+$SERVICE = new Service($id);
+?>
 
 <head>
-    <title>On Call Workers | Services</title>
+    <title>On Call Workers | Services | <?= $SERVICE->title; ?></title>
     <meta charset="utf-8">
 
     <meta name="description" content="">
@@ -20,6 +28,7 @@
     <![endif]-->
 
 </head>
+
 <body>
 
 
@@ -68,45 +77,37 @@
 
                                             <!-- Nav tabs -->
                                             <ul class="nav m-uppercase" role="tablist">
-                                                <li class="active">
-                                                    <a href="" role="tab" data-toggle="tab">
-                                                        <img src="images/services/l2.png" alt="" class="service-img"/>Computer Repair
-                                                    </a>
-                                                <li>
-                                                    <a href="" role="tab" data-toggle="tab">
-                                                        <img src="images/services/l1.png" alt="" class="service-img"/>Landscaping Services
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="" role="tab" data-toggle="tab">
-                                                        <img src="images/services/p1.png" alt="" class="service-img"/>Electrical Service
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="" role="tab" data-toggle="tab">
-                                                        <img src="images/services/t1.png" alt="" class="service-img"/>Electronic Repair
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="" role="tab" data-toggle="tab">
-                                                        <img src="images/services/3-2.png" alt="" class="service-img"/>Masonry Services
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="" role="tab" data-toggle="tab">
-                                                        <img src="images/services/5.png" alt="" class="service-img"/>Carpentry Painting
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="" role="tab" data-toggle="tab">
-                                                        <img src="images/services/2-2.png" alt="" class="service-img"/> Cleaning Gardening
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="" role="tab" data-toggle="tab">
-                                                        <img src="images/services/4-2.png" alt="" class="service-img"/>Plumbing Service
-                                                    </a>
-                                                </li>
+                                                <?php
+                                                $services = $SERVICE->all();
+                                                if (count($services) > 1) {
+                                                    foreach ($services as $key => $service) {
+                                                        $active = '';
+                                                        if ($service['id'] == $id) {
+                                                ?>
+                                                            <li class="active">
+                                                                <a href="" role="tab" data-toggle="tab">
+                                                                    <img src="upload/service/<?= $service['image_name']; ?>" alt="<?= $service['title']; ?>" class="service-img" /><?= $service['title']; ?>
+                                                                </a>
+                                                            </li>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <li class="">
+                                                                <a href="view-service.php?id=<?= $service['id']; ?>">
+                                                                    <img src="upload/service/<?= $service['image_name']; ?>" alt="<?= $service['title']; ?>" class="service-img" /><?= $service['title']; ?>
+                                                                </a>
+                                                            </li>
+                                                    <?php
+                                                        }
+                                                    }
+                                                } else {
+                                                    ?>
+                                                    <h6>No any services</h6>
+                                                <?php
+                                                }
+
+                                                ?>
+                                                
                                             </ul>
                                         </div>
                                         <div class="col-lg-8 col-md-7 col-sm-12">
@@ -120,13 +121,28 @@
 
                                                         <!-- Wrapper for slides -->
                                                         <div class="carousel-inner">
-                                                            <div class="item active">
-                                                                <img src="images/services/service-c1.psd" alt="image">
-                                                            </div>
-                                                            <div class="item">
-                                                                <img src="images/services/service-c2.jpg" alt="image">
-                                                            </div>
+                                                            <?php
+                                                            $SERVICE_PHOTO = new ServicePhoto(NULL);
+                                                            $photos = $SERVICE_PHOTO->getServicePhotosById($id);
+                                                            if (count($photos) > 0) {
+                                                                foreach ($photos as $key => $photo) {
+                                                                    $active = '';
+                                                                    if ($key == 0) {
+                                                                        $active = 'active';
+                                                                    }
+                                                            ?>
+                                                                    <div class="item <?= $active; ?>">
+                                                                        <img src="upload/service/gallery/<?= $photo['image_name']; ?>" alt="<?= $photo['caption']; ?>">
+                                                                    </div>
+                                                                <?php
+                                                                }
+                                                            } else {
+                                                                ?>
+                                                                <h6>No any photos</h6>
+                                                            <?php
+                                                            }
 
+                                                            ?>
                                                         </div>
 
                                                         <!-- Controls -->
@@ -143,15 +159,15 @@
                                                     <header class="entry-header">
 
                                                         <h4 class="entry-title">
-                                                            <a href="blog-single-left.html" rel="bookmark">Computer Repair</a>
+                                                            <?= $SERVICE->title; ?>
                                                         </h4>
 
-                                                        <!-- .entry-meta --> 
+                                                        <!-- .entry-meta -->
 
                                                     </header>
                                                     <!-- .entry-header -->
 
-                                                    <p>For all your computer needs from repairs to software and networking, we have highly skilled team of IT professionals for a quick and dependable service.</p>
+                                                    <?= $SERVICE->description; ?>
 
 
 
@@ -180,9 +196,10 @@
         <div class="preloader_image"></div>
     </div>
 
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/compressed.js"></script>
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/compressed.js"></script>
     <script src="js/main.js"></script>
-<!--    <script src="js/switcher.js"></script>-->
+    <!--    <script src="js/switcher.js"></script>-->
 
 </body>
 

@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+include './class/include.php';
+
+$SERVICE = new Service(NULL);
+$services = $SERVICE->all();
+?>
 
 <head>
     <title>On Call Workers | Services</title>
@@ -20,6 +26,7 @@
     <![endif]-->
 
 </head>
+
 <body>
 
 
@@ -66,110 +73,37 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <?php
+                                if (count($services) > 0) {
+                                    foreach ($services as $service) {
+                                ?>
+                                        <div class="col-md-3 col-sm-6">
+                                            <a href="view-service.php?id=<?= $service['id']; ?>">
+                                                <div class="teaser text-center with_background">
+                                                    <div class="teaser_icon highlight rounded-icon">
+                                                        <img src="upload/service/icon/<?= $service['icon']; ?>" alt="" />
+                                                    </div>
+                                                    <h3 class="m-uppercase"><?= $service['title']; ?></h3>
+                                                    <p><?php
+                                                        if (strlen($service['description']) > 100) {
+                                                            echo substr($service['description'], 0, 100) . '...';
+                                                        } else {
+                                                            echo $service['description'];
+                                                        }
+                                                        ?></p>
+                                                </div>
+                                            </a>
 
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="view-services.php">
-                                        <div class="teaser text-center with_background">
-                                            <div class="teaser_icon highlight rounded-icon">
-                                                <img src="images/services/l2.png" alt=""/>
-                                            </div>
-                                            <h3 class="m-uppercase">Computer Repair</h3>
-                                            <p>Starting from LKR.1000.00 per hour.Additional hour LKR.350.00+30%</p>
-                                        </div>  
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="view-services.php">
-                                        <div class="teaser text-center with_background">
-                                            <div class="teaser_icon highlight rounded-icon">
-                                                <img src="images/services/l1.png" alt=""/>
-                                            </div>
-                                            <h3 class="m-uppercase">Landscaping Services</h3>
-                                            <p>Starting from LKR.1000.00 per hour.Additional hour LKR.350.00+30%</p>
                                         </div>
-                                    </a>
+                                    <?php
+                                    }
+                                } else {
+                                    ?>
+                                    <p>No any services.</p>
+                                <?php
+                                }
+                                ?>
 
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="view-services.php">
-                                        <div class="teaser text-center with_background">
-                                            <div class="teaser_icon highlight rounded-icon">
-                                                <img src="images/services/p1.png" alt=""/>
-                                            </div>
-                                            <h3 class="m-uppercase"> Electrical Service</h3>
-                                            <p>Starting from LKR.1000.00 per hour.Additional hour LKR.350.00+30%</p>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="view-services.php">
-                                        <div class="teaser text-center with_background">
-                                            <div class="teaser_icon highlight rounded-icon">
-                                                <img src="images/services/t1.png" alt=""/>
-                                            </div>
-                                            <h3 class="m-uppercase">Electronic Repair</h3>
-                                            <p>Starting from LKR.1000.00 per hour.Additional hour LKR.350.00+30%</p>
-                                        </div>  
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="view-services.php">
-                                        <div class="teaser text-center with_background">
-                                            <div class="teaser_icon highlight rounded-icon">
-                                                <img src="images/services/3-2.png" alt=""/>
-                                            </div>
-                                            <h3 class="m-uppercase">Masonry Services</h3>
-                                            <p>Starting from LKR.1000.00 per hour.Additional hour LKR.350.00+30%</p>
-                                        </div> 
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="view-services.php">
-                                        <div class="teaser text-center with_background">
-                                            <div class="teaser_icon highlight rounded-icon">
-                                                <img src="images/services/5.png" alt=""/>
-                                            </div>
-                                            <h3 class="m-uppercase">Carpentry Painting</h3>
-                                            <p>Starting from LKR.1000.00 per hour.Additional hour LKR.350.00+30%</p>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="view-services.php">
-                                        <div class="teaser text-center with_background">
-                                            <div class="teaser_icon highlight rounded-icon">
-                                                <img src="images/services/2-2.png" alt=""/> 
-                                            </div>
-                                            <h3 class="m-uppercase">Cleaning Gardening</h3>
-                                            <p>Starting from LKR.1000.00 per hour.Additional hour LKR.180.00+30%</p>
-                                        </div>
-                                    </a>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="view-services.php">
-                                        <div class="teaser text-center with_background">
-                                            <div class="teaser_icon highlight rounded-icon">
-                                                <img src="images/services/4-2.png" alt=""/>
-                                            </div>
-                                            <h3 class="m-uppercase">Plumbing Service</h3>
-                                            <p>Starting from LKR.1000.00 per hour.Additional hour LKR.350.00+30%</p>
-                                        </div>   
-                                    </a>
-
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -187,9 +121,10 @@
         <div class="preloader_image"></div>
     </div>
 
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/compressed.js"></script>
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/compressed.js"></script>
     <script src="js/main.js"></script>
-<!--    <script src="js/switcher.js"></script>-->
+    <!--    <script src="js/switcher.js"></script>-->
 
 </body>
 
