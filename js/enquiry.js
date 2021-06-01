@@ -83,6 +83,15 @@ $('#submit').click(function (event) {
             timer: 2000,
             showConfirmButton: false
         });
+    } else if (!$('#captcha').val() || $('#captcha').val().length === 0) {
+        swal({
+            title: 'Error..!',
+            text: 'Please enter captcha...!',
+            type: 'error',
+            showCancelButton: false,
+            timer: 2000,
+            showConfirmButton: false
+        });
     } else {
         var formData = new FormData($('#enquiry-form')[0]);
         $.ajax({
@@ -103,6 +112,15 @@ $('#submit').click(function (event) {
                     setTimeout(function () {
                         location.reload();
                     }, 2000);
+                } else if (result == 'wrong_code') {
+
+                    swal({
+                        title: "Error!",
+                        type: 'error',
+                        text: "Please enter correct captcha code!...!",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
                 } else {
                     swal({
                         title: "Error!",

@@ -93,5 +93,99 @@ $(document).ready(function () {
 
 
     })
+    $('.approve-job').click(function () {
+        var id = $(this).attr("data-id");
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `You'r about to approve this job!`,
+            icon: `warning`,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: `Yes, approve it!`
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: "post-and-get/ajax/job.php",
+                    type: "POST",
+                    data: {
+                        id,
+                        option: 'APPROVEJOB'
+                    },
+                    dataType: "JSON",
+                    success: function (data) {
+                        if (data == 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Confirmed!',
+                                text: 'Job has been Approved successfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            $('#row_' + id).remove();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'There was an error.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+
+                    }
+
+                })
+            }
+        })
+    });
+    $('.complete-job').click(function () {
+        var id = $(this).attr("data-id");
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: `You'r about to complete this job!`,
+            icon: `warning`,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: `Yes, complete it!`
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: "post-and-get/ajax/job.php",
+                    type: "POST",
+                    data: {
+                        id,
+                        option: 'COMPLETEJOB'
+                    },
+                    dataType: "JSON",
+                    success: function (data) {
+                        if (data == 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Completed!',
+                                text: 'Job has been completed successfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            $('#row_' + id).remove();
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'There was an error.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+
+                    }
+
+                })
+            }
+        })
+    });
 
 })

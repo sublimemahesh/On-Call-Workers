@@ -23,7 +23,7 @@
                             <ul class="all-menu toggle-submenu">
                                 <li><a href="manage-jobs.php?status=1">Manage Pending Jobs</a></li>
                                 <li><a href="manage-jobs.php?status=2">Manage Processing Jobs</a></li>
-                                <li><a href="manage-jobs.php?status=3">Manage Confirmed Jobs</a></li>
+                                <li><a href="manage-jobs.php?status=3">Manage Approved Jobs</a></li>
                                 <li><a href="manage-jobs.php?status=4">Manage Completed Jobs</a></li>
                             </ul>
                         </div>
@@ -79,14 +79,14 @@
                                             <ul class="all-menu">
                                                 <li><a href="manage-jobs.php?status=1">Manage Pending Jobs</a></li>
                                                 <li><a href="manage-jobs.php?status=2">Manage Processing Jobs</a></li>
-                                                <li><a href="manage-jobs.php?status=3">Manage Confirmed Jobs</a></li>
+                                                <li><a href="manage-jobs.php?status=3">Manage Approved Jobs</a></li>
                                                 <li><a href="manage-jobs.php?status=4">Manage Completed Jobs</a></li>
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a class="nav-link" href="manage-inquiries.php">My Inquiries</a>
-                                    </li>
+                                    </li> -->
                                     <li class="dropdown">
                                         <a class="nav-link dropdown-toggler" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             My Profile

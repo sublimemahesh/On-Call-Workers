@@ -48,8 +48,8 @@ $SUPERVISOR = new Supervisor($_SESSION["m_id"]);
 
         <div class="row">
             <div class="col-md-3 col-sm-6">
-                <a class="sub-box text-center text-c dash-box " href="add-new-property.php">
-                    <b class="font-supervisor-box">Add New Properties</b>
+                <a class="sub-box text-center text-c dash-box " href="manage-jobs.php?status=1">
+                    <b class="font-supervisor-box">Pending Jobs</b>
                     <hr />
                     <i class="fa fa-plus-circle"></i>
                     <hr />
@@ -57,8 +57,8 @@ $SUPERVISOR = new Supervisor($_SESSION["m_id"]);
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
-                <a class="sub-box text-center text-c dash-box " href="manage-properties.php?status=0">
-                    <b class="font-supervisor-box">Pending Properties</b>
+                <a class="sub-box text-center text-c dash-box " href="manage-jobs.php?status=2">
+                    <b class="font-supervisor-box">Processing Jobs</b>
                     <hr />
                     <i class="fa fa-spinner"></i>
                     <hr />
@@ -66,16 +66,16 @@ $SUPERVISOR = new Supervisor($_SESSION["m_id"]);
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 box-bottom ">
-                <a class="sub-box text-center text-c " href="manage-properties.php?status=1">
-                    <b class="font-supervisor-box">Approved Properties</b>
+                <a class="sub-box text-center text-c " href="manage-jobs.php?status=3">
+                    <b class="font-supervisor-box">Approved Jobs</b>
                     <hr />
                     <i class="fa fa-check-circle-o text-danger"></i>
                     <hr />
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
-                <a class="sub-box text-center text-c" href="manage-inquiries.php">
-                    <b class="font-supervisor-box">Inquiries</b>
+                <a class="sub-box text-center text-c" href="manage-jobs.php?status=4">
+                    <b class="font-supervisor-box">Completed Jobs</b>
                     <hr />
                     <i class="fa fa-question-circle text-danger"></i>
                     <hr />

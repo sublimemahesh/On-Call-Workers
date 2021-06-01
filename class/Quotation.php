@@ -146,4 +146,18 @@ class Quotation
 
         return $array_res;
     }
+    public function getQuotationsbyByJob($job)
+    {
+
+        $query = "SELECT * FROM `quotation` WHERE `job` = $job";
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysql_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+
+        return $array_res;
+    }
 }
