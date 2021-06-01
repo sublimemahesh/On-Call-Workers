@@ -13837,6 +13837,9 @@ a.soc-pocket.bg-icon:hover,
     background-color: white;
     padding: 5px;
 }
+.comment-form .refreshbox {
+    float: right;
+}
 
 @media(min-width:991px){
 .logo-padding{

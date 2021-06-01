@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php
 include './class/include.php';
+$COMMENT = new Comments(NULL);
+$SERVICE = new Service(NULL);
+$comments = $COMMENT->activeComments();
+$services = $SERVICE->all();
 ?>
+
 <head>
     <title>On Call Workers</title>
     <meta charset="utf-8">
@@ -22,10 +27,11 @@ include './class/include.php';
     <![endif]-->
 
 </head>
+
 <body>
 
 
-    
+
 
     <!-- wrappers for visual page editor and boxed version of template -->
     <div id="canvas">
@@ -45,9 +51,18 @@ include './class/include.php';
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-lg-7 to_animate">
-                            <div><div class="title-block"><span class="prefix">25</span><h3 class="sub">Years of</h3><h1 class="title">Experience</h1></div></div>
+                            <div>
+                                <div class="title-block"><span class="prefix">25</span>
+                                    <h3 class="sub">Years of</h3>
+                                    <h1 class="title">Experience</h1>
+                                </div>
+                            </div>
                             <div class="fw-heading">
-                                <h5>If you’re looking for reliable and trusted plumbing company we’re at Your service, providing plumbing services.</h5> </div> <div class="fw-divider-line"><hr></div>
+                                <h5>If you’re looking for reliable and trusted plumbing company we’re at Your service, providing plumbing services.</h5>
+                            </div>
+                            <div class="fw-divider-line">
+                                <hr>
+                            </div>
 
 
                             <div class="fw-iconbox clearfix ib-type1">
@@ -92,7 +107,7 @@ include './class/include.php';
 
                         </div>
                     </div>
-                </div>          
+                </div>
             </section>
 
             <section class="ls parallax section_padding_bottom_100 section_padding_top_100 services-section">
@@ -100,68 +115,31 @@ include './class/include.php';
                     <div class="container to_animate">
                         <div class="heading-b">
                             <h3>Main Services</h3>
-                            <p>With over 25 years experience and real focus on customer satisfaction, you <br/> can rely on us for your next renovation.</p>
+                            <p>With over 25 years experience and real focus on customer satisfaction, you <br /> can rely on us for your next renovation.</p>
                         </div>
                         <div class="col-sm-12 row to_animate" data-animation="scaleAppear">
-                           <div class="col-sm-3 button-block">
-                               <a href="view-services.php">
-                                    <i class="rt-icon2-monitor"></i><br/>
-                                    Computer<br>
-                                    Repair
-                                </a>
-                            </div>
-                            <div class="col-sm-3 button-block">
-                                <a href="view-services.php">
-                                    <i class="rt-icon2-layers2"></i><br/>
-                                    Landscaping<br>
-                                    Services
-                                </a>
-                            </div>
-                           
-                            <div class="col-sm-3 button-block">
-                                <a href="view-services.php">
-                                    <i class="rt-icon2-plug"></i><br/>
-                                    Electrical<br>
-                                    Repair
-                                </a>
-                            </div>
-                            <div class="col-sm-3 button-block">
-                                <a href="view-services.php">
-                                    <i class="rt-icon2-tools-2"></i><br/>
-                                    Electronic<br>
-                                    Repair
-                                </a>
-                            </div>
-                            
-                             <div class="col-sm-3 button-block">
-                                 <a href="view-services.php">
-                                    <img src="images/services/3.png" alt=""/><br/>
-                                    Masonry<br>
-                                    Services
-                                </a>
-                            </div>
-                             <div class="col-sm-3 button-block">
-                                 <a href="view-services.php">
-                                    <img src="images/services/icons8-trowel.png" alt=""/><br/>
-                                    Carpentry<br>
-                                    Painting
-                                </a>
-                            </div>
-                            <div class="col-sm-3 button-block">
-                                <a href="view-services.php">
-                                    <img src="images/services/2.png" alt=""/> <br/>
-                                    Cleaning<br>
-                                    Gardening
-                                </a>
-                            </div>
-                            
-                            <div class="col-sm-3 button-block">
-                                <a href="view-services.php">
-                                     <img src="images/services/4.png" alt=""/><br/>
-                                    Plumbing<br>
-                                    Services
-                                </a>
-                            </div>
+                            <?php
+                            if (count($services) > 0) {
+                                foreach ($services as $key => $service) {
+                                    if ($key < 8) {
+                            ?>
+                                        <div class="col-sm-3 button-block">
+                                            <a href="view-service.php?id=<?= $service['id']; ?>">
+                                                <!-- <i class="rt-icon2-monitor"></i> -->
+                                                <img src="upload/service/icon/<?= $service['icon']; ?>" alt="" />
+                                                <br />
+                                                <?= $service['title']; ?>
+                                            </a>
+                                        </div>
+                                <?php
+                                    }
+                                }
+                            } else {
+                                ?>
+                                <p>No any services.</p>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -173,9 +151,13 @@ include './class/include.php';
 
                         <div class="col-sm-12 to_animate">
                             <div class="hello_heading_2">
-                                <div class="title-block"><h3 class="text-center">HOW IT WORKS</h3></div>
+                                <div class="title-block">
+                                    <h3 class="text-center">HOW IT WORKS</h3>
+                                </div>
                                 <div class="fw-heading fw-heading-h5  ">
-                                    <h5 class="fw-special-title text-center">If you’re looking for reliable and trusted plumbing company we’re at Your service, providing plumbing services.</h5> </div> <div class="fw-divider-line"></div>
+                                    <h5 class="fw-special-title text-center">If you’re looking for reliable and trusted plumbing company we’re at Your service, providing plumbing services.</h5>
+                                </div>
+                                <div class="fw-divider-line"></div>
                             </div>
                             <hr>
 
@@ -220,7 +202,7 @@ include './class/include.php';
                             </div>
                         </div>
                     </div>
-                </div>          
+                </div>
             </section>
             <section class="ls parallax m-our-projects section_padding_top_0 section_padding_bottom_0 columns_padding_0">
                 <div class="container-fluid">
@@ -255,64 +237,41 @@ include './class/include.php';
                     </div>
 
                 </div>
-            </section> 
+            </section>
             <section class="ls ms section_padding_top_50 section_padding_bottom_40">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
 
-                            <div class="owl-carousel"
-                                 data-dots="false" 
-                                 data-nav="false"
-                                 data-items="1"
-                                 data-autoplay="true"
-                                 data-autoplaySpeed="2300"
-                                 data-responsive-lg="1"
-                                 data-responsive-md="1"
-                                 data-responsive-sm="1"
-                                 data-responsive-xs="1"
-                                 >
-
-                                <div>
-                                    <div class="testimonials">
-                                        <blockquote class="blockquote-big">
-                                            <h2>Testimonials</h2>
-                                            <p>Today was the third time I have had this company to our house to do some work. Every time I have been extremely impressed by the professional and considerate nature of your staff.</p>
-                                            <img class="testiminials-img left-testiminials-img" src="images/team/02.jpg" alt="" draggable="false">
-                                            <img class="testiminials-img testiminials-img-main" src="images/team/01.jpg" alt="" draggable="false">
-                                            <img class="testiminials-img right-testiminials-img" src="images/team/05.jpg" alt="" draggable="false">
-                                            <div><h6>Carl Johnson</h6><span>Manager</span></div>
-                                        </blockquote>
-                                    </div>
-                                </div><!-- .item -->
-
-                                <div>
-                                    <div class="testimonials">
-                                        <blockquote class="blockquote-big">
-                                            <h2>Testimonials</h2>
-                                            <p>Today was the third time I have had this company to our house to do some work. Every time I have been extremely impressed by the professional and considerate nature of your staff.</p>
-                                            <img class="testiminials-img left-testiminials-img" src="images/team/02.jpg" alt="" draggable="false">
-                                            <img class="testiminials-img testiminials-img-main" src="images/team/01.jpg" alt="" draggable="false">
-                                            <img class="testiminials-img right-testiminials-img" src="images/team/05.jpg" alt="" draggable="false">
-                                            <div><h6>Carl Johnson</h6><span>Manager</span></div>
-                                        </blockquote>
-                                    </div>
-                                </div><!-- .item -->
-
-                                <div>
-                                    <div class="testimonials">
-                                        <blockquote class="blockquote-big">
-                                            <h2>Testimonials</h2>
-                                            <p>Today was the third time I have had this company to our house to do some work. Every time I have been extremely impressed by the professional and considerate nature of your staff.</p>
-                                            <img class="testiminials-img left-testiminials-img" src="images/team/02.jpg" alt="" draggable="false">
-                                            <img class="testiminials-img testiminials-img-main" src="images/team/01.jpg" alt="" draggable="false">
-                                            <img class="testiminials-img right-testiminials-img" src="images/team/05.jpg" alt="" draggable="false">
-                                            <div><h6>Carl Johnson</h6><span>Manager</span></div>
-                                        </blockquote>
-                                    </div>
-                                </div><!-- .item -->
-
-
+                            <div class="owl-carousel" data-dots="false" data-nav="false" data-items="1" data-autoplay="true" data-autoplaySpeed="2300" data-responsive-lg="1" data-responsive-md="1" data-responsive-sm="1" data-responsive-xs="1">
+                                <?php
+                                if (count($comments) > 0) {
+                                    foreach ($comments as $key => $comment) {
+                                        if ($key < 6) {
+                                ?>
+                                            <div>
+                                                <div class="testimonials">
+                                                    <blockquote class="blockquote-big">
+                                                        <h2>Testimonials</h2>
+                                                        <?= $comment['comment']; ?>
+                                                        <!-- <img class="testiminials-img left-testiminials-img" src="images/team/02.jpg" alt="" draggable="false"> -->
+                                                        <img class="testiminials-img testiminials-img-main" src="upload/comments/<?= $comment['image_name']; ?>" alt="" draggable="false">
+                                                        <!-- <img class="testiminials-img right-testiminials-img" src="images/team/05.jpg" alt="" draggable="false"> -->
+                                                        <div>
+                                                            <h6><?= $comment['name']; ?></h6><span><?= $comment['title']; ?></span>
+                                                        </div>
+                                                    </blockquote>
+                                                </div>
+                                            </div><!-- .item -->
+                                    <?php
+                                        }
+                                    }
+                                } else {
+                                    ?>
+                                    <h6>No any comments</h6>
+                                <?php
+                                }
+                                ?>
                             </div><!-- .owl-carousel -->
                         </div><!-- .col- -->
                     </div><!-- .row -->
@@ -335,9 +294,10 @@ include './class/include.php';
         <div class="preloader_image"></div>
     </div>
 
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/compressed.js"></script>
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/compressed.js"></script>
     <script src="js/main.js"></script>
-<!--    <script src="js/switcher.js"></script>-->
+    <!--    <script src="js/switcher.js"></script>-->
 
 </body>
 
