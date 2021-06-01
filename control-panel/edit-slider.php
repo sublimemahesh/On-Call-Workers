@@ -77,8 +77,8 @@ $SLIDER = new Slider($id);
                                 <div class="col-md-12">
                                     <div class="form-group form-float">
                                         <div class="form-line">
-                                            <input type="text" id="url" class="form-control" value="<?php echo $SLIDER->url; ?>" name="url" required="TRUE">
-                                            <label class="form-label">Url</label>
+                                            <input type="text" id="caption" class="form-control" value="<?php echo $SLIDER->caption; ?>" name="caption" required="TRUE">
+                                            <label class="form-label">Caption</label>
                                         </div>
                                     </div>
                                 </div>

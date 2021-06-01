@@ -9,21 +9,20 @@
 /**
  * Description of slider
  *
- * @author Nipuni
+ * @author W j K n``
  */
 class Slider {
 
     public $id;
     public $title;
     public $image_name;
-    public $description;
-    public $url;
+    public $caption;
     public $queue;
 
     public function __construct($id) {
         if ($id) {
 
-            $query = "SELECT `id`,`title`,`image_name`,`description`,`url`,`queue` FROM `slider` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`title`,`image_name`,`caption`,`queue` FROM `slider` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -32,8 +31,7 @@ class Slider {
             $this->id = $result['id'];
             $this->title = $result['title'];
             $this->image_name = $result['image_name'];
-            $this->description = $result['description'];
-            $this->url = $result['url'];
+            $this->caption = $result['caption'];
             $this->queue = $result['queue'];
 
             return $this;
@@ -42,11 +40,10 @@ class Slider {
 
     public function create() {
 
-        $query = "INSERT INTO `slider` (`title`,`image_name`,`description`,`url`,`queue`) VALUES  ('"
+        $query = "INSERT INTO `slider` (`title`,`image_name`,`caption`,`queue`) VALUES  ('"
                 . $this->title . "','"
                 . $this->image_name . "', '"
-                . $this->description . "', '"
-                . $this->url . "', '"
+                . $this->caption . "', '"
                 . $this->queue . "')";
 
         $db = new Database();
@@ -81,8 +78,7 @@ class Slider {
         $query = "UPDATE  `slider` SET "
                 . "`title` ='" . $this->title . "', "
                 . "`image_name` ='" . $this->image_name . "', "
-                . "`description` ='" . $this->description . "', "
-                . "`url` ='" . $this->url . "', "
+                . "`caption` ='" . $this->caption . "', "
                 . "`queue` ='" . $this->queue . "' "
                 . "WHERE `id` = '" . $this->id . "'";
 

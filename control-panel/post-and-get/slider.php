@@ -8,7 +8,7 @@ if (isset($_POST['create'])) {
     $VALID = new Validator();
 
     $SLIDER->title = $_POST['title'];
-    $SLIDER->url = $_POST['url'];
+    $SLIDER->caption = $_POST['caption'];
 
     $dir_dest = '../../upload/slider/';
 
@@ -22,7 +22,7 @@ if (isset($_POST['create'])) {
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = Helper::randamId();
         $handle->image_x = 1900;
-        $handle->image_y = 500;
+        $handle->image_y = 1000;
 
         $handle->Process($dir_dest);
 
@@ -36,7 +36,7 @@ if (isset($_POST['create'])) {
 
     $VALID->check($SLIDER, [
         'title' => ['required' => TRUE],
-        'url' => ['required' => TRUE],
+        'caption' => ['required' => TRUE],
         'image_name' => ['required' => TRUE]
     ]);
 
@@ -77,7 +77,7 @@ if (isset($_POST['update'])) {
         $handle->image_ratio_crop = 'C';
         $handle->file_new_name_body = $_POST ["oldImageName"];
         $handle->image_x = 1900;
-        $handle->image_y = 500;
+        $handle->image_y = 1000;
 
         $handle->Process($dir_dest);
 
@@ -91,13 +91,13 @@ if (isset($_POST['update'])) {
 
     $SLIDER->image_name = $_POST['oldImageName'];
     $SLIDER->title = $_POST['title'];
-    $SLIDER->url = $_POST['url'];
+    $SLIDER->caption = $_POST['caption'];
 
 
     $VALID = new Validator();
     $VALID->check($SLIDER, [
         'title' => ['required' => TRUE],
-        'url' => ['required' => TRUE],
+        'caption' => ['required' => TRUE],
         'image_name' => ['required' => TRUE]
     ]);
 
