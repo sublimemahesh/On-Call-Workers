@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<?php
+include './class/include.php';
+?>
 <head>
     <title>On Call Workers</title>
     <meta charset="utf-8">
