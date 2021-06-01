@@ -2,19 +2,19 @@
 
 //------------------------- IMPORTANT -------------------------
 
-require_once "Mail.php";
+include_once(dirname(__FILE__) . '/../class/include.php');
 
 date_default_timezone_set('Asia/Colombo');
 $todayis = date("l, F j, Y, g:i a");
 $site_link = "https://" . $_SERVER['HTTP_HOST'];
 
 //----------------------- DISPLAY STRINGS ---------------------
-$comany_name = "HBS Tours and Taxi";
-$website_name = "www.hbstoursandtaxi.com";
-$comConNumber = "+94 76 887 8088";
-$comEmail = "hbstoursandtaxi@gmail.com";
-$comOwner = "HBS Tours and Taxi";
-$customer_msg = 'Hello, and thank you for your interest in ' . $comany_name . '. We have received your enquiry , and we will get back to you as soon as possible.';
+$comany_name = "On Call Workers";
+$website_name = "www.oncallworkers.lk";
+$comConNumber = "(+94) 27 7211 300";
+$comEmail = "info@oncallworkers.lk";
+$comOwner = "Team On Call Workers";
+$customer_msg = 'Hello, and thank you for your interest in ' . $comany_name . '. We have received your enquiry, and we will get back to you as soon as possible.';
 
 //----------------------- LOGO ---------------------------------
 
@@ -26,85 +26,43 @@ $logo = $site_link . '/contact-form/img/logo.png';
 $visitor_name = $_POST['visitor_name'];
 $visitor_email = $_POST['visitor_email'];
 $visitor_phone = $_POST['visitor_phone'];
-$subject = $_POST['subject'];
+//$visitor_subject = $_POST['subject'];
 $message = $_POST['message'];
 
 
-//---------------------- SERVER WEBMAIL LOGIN ------------------------
-
-$host = "sg1-ls7.a2hosting.com";
-$username = "info@hbstoursandtaxi.com";
-$password = ".9Bd6V^w=bSg";
-
-// $host = "sg1-ls7.a2hosting.com";
-// $username = "info@srilankapetertours.com";
-// $password = "Peter@7027";
-// $password = "(yq5,xL*HVoV";
-
 //------------------------ MAIL ESSENTIALS --------------------------------
 
-$webmail = "info@hbstoursandtaxi.com";
-$visitorSubject = "Thank You " . $visitor_name . " - HBS Tours & Taxi";
+$webmail = "info@oncallworkers.lk";
+$visitorSubject = "Thank You " . $visitor_name . " - " . $comany_name;
 $companySubject = "Contact Inquiry - " . $visitor_name;
 
 //----------------------CAPTCHACODE---------------------
 
 session_start();
-
 $response = array();
 
 if ($_SESSION['CAPTCHACODE'] != $_POST['captchacode']) {
-
-    $response['status'] = 'incorrect';
-
+    $response['status'] = 'wrong_code';
     $response['msg'] = 'Security Code is invalid';
-
     echo json_encode($response);
-
     exit();
 }
 
 include("mail-template.php");
 
+$HELPER = new Helper();
+$visitorMail = $HELPER->PHPMailer($webmail, $comany_name, $comEmail, $comany_name, $visitor_email, $visitor_name, $visitorSubject, $visitor_message);
 
-$visitorHeaders = array('MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
-    'To' => $visitor_email,
-    'Reply-To' => $comEmail,
-    'Subject' => $visitorSubject);
+$companyMail = $HELPER->PHPMailer($webmail, $visitor_name, $visitor_email, $visitor_name, $comEmail, $comany_name, $companySubject, $company_message);
 
-$companyHeaders = array('MIME-Version' => '1.0', 'Content-Type' => "text/html; charset=ISO-8859-1", 'From' => $webmail,
-    'To' => $webmail,
-    'Reply-To' => $visitor_email,
-    'Subject' => $companySubject);
-
-
-$smtp = Mail::factory('smtp', array('host' => $host,
-            'auth' => true,
-            'username' => $username,
-            'password' => $password));
-
-$visitorMail = $smtp->send($visitor_email, $visitorHeaders, $visitor_message);
-$companyMail = $smtp->send($webmail, $companyHeaders, $company_message);
-
-if (PEAR::isError($visitorMail && $companyMail)) {
-
+if ($visitorMail && $companyMail) {
     $response['status'] = 'correct';
-
-    $response['msg'] = $mail->getMessage();
-
-//"Your message has not been sent"
-
+    $response['msg'] = "Your message has been sent successfully";
     echo json_encode($response);
-
     exit();
 } else {
-    $response['status'] = 'correct';
-
-    $response['msg'] = "Your message has been sent successfully";
-
-//"Your message has been sent successfully"
-
+    $response['status'] = 'incorrect';
+    $response['msg'] = "Your message has not been sent";
     echo json_encode($response);
-
     exit();
 }

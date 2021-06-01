@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include './class/include.php';
+?>
 
 <head>
     <title>On Call Workers | Contact Us</title>
@@ -12,6 +15,8 @@
     <link rel="stylesheet" href="css/main.css" id="color-switcher-link">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="control-panel/plugins/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="contact-form/style.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
     <!--[if lt IE 9]>
@@ -20,6 +25,7 @@
     <![endif]-->
 
 </head>
+
 <body>
 
 
@@ -66,7 +72,7 @@
                                     <h3>Address</h3>
                                 </div>
 
-                                <p> 
+                                <p>
                                     No 321/F, Utuwankanda Rd, Thalawatugoda.
                                 </p>
 
@@ -90,7 +96,9 @@
                                 <div class="m-uppercase">
                                     <h3>Contact Us</h3>
                                 </div>
-                                <a href="tel:+942775875"> <p class="footer-text">2 775 875</p></a>
+                                <a href="tel:+942775875">
+                                    <p class="footer-text">2 775 875</p>
+                                </a>
                             </div>
                         </div>
 
@@ -104,35 +112,52 @@
 
                     <div class="row">
                         <div class="col-sm-6 to_animate">
-                            <form class="contact-form columns_padding_5" method="post" action="https://html.modernwebtemplates.com/">
+                            <form class="contact-form columns_padding_5" method="post" action="#" id="form-data">
 
 
                                 <div>
                                     <p class="contact-form-name">
-                                        <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Full Name">
+                                        <input type="text" aria-required="true" size="30" value="" name="txtFullName" id="txtFullName" class="form-control" placeholder="Full Name">
+                                        <span id="spanFullName"></span>
                                     </p>
                                     <p class="contact-form-name">
-                                        <input type="text" aria-required="true" size="30" value="" name="phone" id="name" class="form-control" placeholder="phone">
+                                        <input type="text" aria-required="true" size="30" value="" name="txtPhone" id="txtPhone" class="form-control" placeholder="phone">
+                                        <span id="spanPhone"></span>
                                     </p>
                                     <p class="contact-form-email">
-                                        <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Email">
-                                    </p>
-                                    <p class="contact-form-subject">
-                                        <input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Subject">
+                                        <input type="email" aria-required="true" size="30" value="" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email">
+                                        <span id="spanEmail"></span>
                                     </p>
                                 </div>
+
                                 <div>
 
                                     <p class="contact-form-message">
-                                        <textarea aria-required="true" rows="6" cols="45" name="message" id="message" class="form-control" placeholder="Message"></textarea>
+                                        <textarea aria-required="true" rows="6" cols="45" name="txtMessage" id="txtMessage" class="form-control" placeholder="Message"></textarea>
+                                        <span id="spanMessage"></span>
                                     </p>
                                 </div>
-
+                                <div class="row col-md-12">
+                                    <div class="col-md-8">
+                                        <p class="contact-form-captcha">
+                                            <input type="text" id="captchacode" class="form-control" autocomplete="off" name="captchacode" placeholder="Captcha Code">
+                                            <span id="capspan"></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4 refresh-res code-i mb-0">
+                                        <div class="form-col">
+                                            <div class="mrg code-m">
+                                                <?php include("./contact-form/captchacode-widget.php"); ?>
+                                            </div>
+                                        </div>
+                                        <img id="checking" src="contact-form/img/checking.gif" alt="" />
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-12">
 
                                         <p class="contact-form-submit text-center topmargin_30">
-                                            <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button round-icon-big round-icon colormain and-white">Send Message<i class="rt-icon2-tick-outline"></i></button>
+                                            <button type="submit" id="btnSubmit" name="contact_submit" class="theme_button round-icon-big round-icon colormain and-white">Send Message<i class="rt-icon2-tick-outline"></i></button>
                                         </p>
                                     </div>
 
@@ -162,9 +187,11 @@
         <div class="preloader_image"></div>
     </div>
 
-    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/compressed.js"></script>
+    <script src="js/compressed.js"></script>
     <script src="js/main.js"></script>
-<!--    <script src="js/switcher.js"></script>-->
+    <script src="control-panel/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="contact-form/scripts.js"></script>
+    <!--    <script src="js/switcher.js"></script>-->
 
 </body>
 
