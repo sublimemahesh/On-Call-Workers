@@ -362,7 +362,7 @@
                         <li>
                             <a href="manage-jobs.php?type=3">
                                 <i class="material-icons">list</i>
-                                <span>Confirmed Jobs</span>
+                                <span>Approved Jobs</span>
                             </a>
                         </li>
                         <li>
@@ -444,6 +444,13 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="qqq">
+                    <a href="manage-workers.php" class="">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Workers</span>
+                    </a>
+
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">

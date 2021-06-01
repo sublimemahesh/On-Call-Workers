@@ -111,16 +111,28 @@ if (isset($_GET['type'])) {
                                                             <td><?= $job['name']; ?></td>
                                                             <td><?= $name; ?></td>
                                                             <td>
+                                                                <a href="view-job.php?id=<?php echo $job['id']; ?>"> <button class="glyphicon glyphicon-eye-open edit-btn" title="View Job"></button></a>
                                                                 <?php
+
                                                                 if ($_GET['type'] == 0) {
                                                                 ?>
                                                                     <a href="#" class="assign-supervisor" data-id="<?php echo $job['id']; ?>"> <button type="button" class="glyphicon glyphicon-user arrange-btn" title="Assign Supervisor"> </button> </a>
-                                                                    <a href="#" class="delete-job" data-id="<?= $job['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn" title="Delete this Property"></button></a>
+                                                                    <a href="#" class="delete-job" data-id="<?= $job['id']; ?>"> <button class="glyphicon glyphicon-trash delete-btn" title="Delete this Job"></button></a>
+                                                                <?php
+                                                                }
+                                                                if ($_GET['type'] == 2) {
+                                                                ?>
+                                                                    <a href="#" class="approve-job" data-id="<?= $job['id']; ?>"> <button class="glyphicon glyphicon-check arrange-btn" title="Approve this Job"></button></a>
+                                                                <?php
+                                                                }
+                                                                if ($_GET['type'] == 3) {
+                                                                ?>
+                                                                    <a href="#" class="complete-job" data-id="<?= $job['id']; ?>"> <button class="glyphicon glyphicon-check delete-btn" title="Complete this Job"></button></a>
                                                                 <?php
                                                                 }
                                                                 ?>
 
-                                                                <a href="view-job.php?id=<?php echo $job['id']; ?>"> <button class="glyphicon glyphicon-eye-open edit-btn" title="View Job"></button></a>
+
 
                                                             </td>
                                                         </tr>

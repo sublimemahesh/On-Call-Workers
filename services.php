@@ -81,7 +81,7 @@ $services = $SERVICE->all();
                                             <a href="view-service.php?id=<?= $service['id']; ?>">
                                                 <div class="teaser text-center with_background">
                                                     <div class="teaser_icon highlight rounded-icon">
-                                                        <img src="upload/service/icon/<?= $service['icon']; ?>" alt="" />
+                                                        <img src="upload/service/icon/<?= $service['icon']; ?>" alt="" class="service-photo"/>
                                                     </div>
                                                     <h3 class="m-uppercase"><?= $service['title']; ?></h3>
                                                     <p><?php

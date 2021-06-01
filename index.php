@@ -126,7 +126,7 @@ $services = $SERVICE->all();
                                         <div class="col-sm-3 button-block">
                                             <a href="view-service.php?id=<?= $service['id']; ?>">
                                                 <!-- <i class="rt-icon2-monitor"></i> -->
-                                                <img src="upload/service/icon/<?= $service['icon']; ?>" alt="" />
+                                                <img src="upload/service/icon/<?= $service['icon']; ?>" alt="" class="service-photo" />
                                                 <br />
                                                 <?= $service['title']; ?>
                                             </a>

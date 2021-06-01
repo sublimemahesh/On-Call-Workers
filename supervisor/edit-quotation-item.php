@@ -7,6 +7,11 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 $QUOTATION_ITEM = new QuotationItem($id);
+$QUOTATION = new Quotation($QUOTATION_ITEM->quotation);
+$JOB = new Job($QUOTATION->job);
+if($JOB->status > 2) {
+    redirect('access-denied.php');
+}
 ?>
 <!doctype html>
 <html lang="en">

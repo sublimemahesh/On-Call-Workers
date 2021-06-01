@@ -272,8 +272,7 @@ class Supervisor
             . "`picture` ='" . $this->picture . "', "
             . "`description` ='" . $this->description . "', "
             . "`email_verified` ='" . $this->email_verified . "', "
-            . "`e_verification_code` ='" . $this->e_verification_code . "', "
-            . "`type` ='" . $this->type . "' "
+            . "`e_verification_code` ='" . $this->e_verification_code . "' "
             . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();

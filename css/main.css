@@ -14083,6 +14083,13 @@ a.soc-pocket.bg-icon:hover,
 .contact-form-captcha {
 margin-left: 5px;
 }
+.worker-reg-icon {
+    width: 36px;
+    border-radius: 50%;
+}
+.service-photo {
+    border-radius: 50%;
+}
 @media(min-width:991px) {
     .logo-padding {
         padding: 27px 0 !important;

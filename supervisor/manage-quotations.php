@@ -7,6 +7,9 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 $JOB = new Job($id);
+if($JOB->status > 2) {
+    redirect('access-denied.php');
+}
 ?>
 <!doctype html>
 <html lang="en">

@@ -110,7 +110,7 @@ $SUPERVISOR = new Supervisor($JOB->supervisor);
                                                         } else if ($JOB->status == 2) {
                                                             echo 'Processing';
                                                         } else if ($JOB->status == 3) {
-                                                            echo 'Confirmed';
+                                                            echo 'Approved';
                                                         } else if ($JOB->status == 4) {
                                                             echo 'Completed';
                                                         }
@@ -133,6 +133,53 @@ $SUPERVISOR = new Supervisor($JOB->supervisor);
                                                 ?>
 
                                             </table>
+
+                                            <?php
+                                            if ($JOB->status > 1) {
+                                                $QUOTATION = new Quotation(NULL);
+                                                $quotations = $QUOTATION->getQuotationsbyByJob($id);
+                                            ?>
+                                                <h4>Quotations</h4>
+                                                <br />
+                                                <?php
+                                                foreach ($quotations as $quotation) {
+                                                    $QUOTATION_ITEM = new QuotationItem(NULL);
+                                                    $items = $QUOTATION_ITEM->getItemsByQuotation($quotation['id']);
+                                                ?>
+                                                    <h5>Title: <?= $quotation['title']; ?></h5>
+                                                    <h5>Created At: <?= $quotation['created_at']; ?></h5>
+
+                                                    <table class="table table-striped table-hover">
+                                                        <tr>
+                                                            <td>Id</td>
+                                                            <td colspan="2">Item</td>
+                                                            <td>Amount (LKR)</td>
+                                                        </tr>
+
+                                                        <?php
+                                                        foreach ($items as $key => $item) {
+                                                        ?>
+                                                            <tr>
+                                                                <td><?= $key + 1; ?></td>
+                                                                <td colspan="2"><?= $item['description']; ?></td>
+                                                                <td><?= $item['amount']; ?></td>
+                                                            </tr>
+
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                <?php
+                                                }
+                                                ?>
+
+                                            <?php
+                                            }
+                                            ?>
+
+
+
+
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="btn-back">

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-alert(111);
+
     $('#create').click(function (event) {
         event.preventDefault();
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;

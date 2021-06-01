@@ -191,7 +191,6 @@ class Job
     public function updateStatus()
     {
         date_default_timezone_set('Asia/Colombo');
-        $assignedAt = date('Y-m-d H:i:s');
         $query = "UPDATE `job` SET  `status` = $this->status WHERE `id` = $this->id";
         // dd($query);
         $db = new Database();
