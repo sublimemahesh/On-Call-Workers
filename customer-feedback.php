@@ -67,57 +67,6 @@ $comments = $COMMENT->activeComments();
                     <div class="row">
 
                         <div class="col-sm-10 col-sm-push-1">
-
-                            <div class="comment-respond" id="respond">
-                                <form class="comment-form" id="form-data" method="POST" enctype="multipart/form-data">
-                                    <div class="row columns_padding_5">
-                                        <div class="col-md-12">
-                                            <p class="comment-form-author">
-                                                <input type="text" id="name" class="form-control" autocomplete="off" name="name" placeholder="Your Name">
-                                            </p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="comment-form-email">
-                                                <input type="text" id="title" class="form-control" autocomplete="off" name="title" placeholder="Title">
-                                            </p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="comment-form-website">
-                                                <input type="file" id="image" class="form-control" name="image">
-                                            </p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="comment-form-chat">
-                                                <textarea id="comment" name="comment" class="form-control" rows="5" placeholder="Comment..."></textarea>
-                                                <input type="hidden" value="1" name="active" />
-                                            </p>
-                                        </div>
-                                        <div class="row col-md-12">
-                                            <div class="col-md-9">
-                                                <p class="comment-form-email">
-                                                    <input type="text" id="captcha" class="form-control" autocomplete="off" name="captcha" placeholder="Captcha Code">
-                                                </p>
-                                            </div>
-                                            <div class="col-md-3 refresh-res code-i mb-0">
-                                                <div class="form-col">
-                                                    <div class="mrg code-m">
-                                                        <?php include("./contact-form/captchacode-widget.php"); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="send-button-center">
-                                        <p class="form-submit">
-                                            <input type="hidden" name="create" value="create" />
-                                            <button id="submit" type="submit" value="create" class="theme_button round-icon round-icon-big colormain2">Add Your Feedback<i class="rt-icon2-tick-outline"></i></button>
-                                        </p>
-                                    </div>
-
-                                </form>
-                            </div>
-                            <!-- #respond -->
                             <div class="comments-area" id="comments">
                                 <ol class="comment-list">
                                     <?php
@@ -153,8 +102,62 @@ $comments = $COMMENT->activeComments();
                                 </ol>
                                 <!-- .comment-list -->
                             </div>
-
+                            <div class="text-center">
+                                <h3>Add Your Feedback</h3>
+                                
+                            </div>
                             <!-- #comments -->
+                            <div class="comment-respond" id="respond">
+                                <form class="comment-form" id="form-data" method="POST" enctype="multipart/form-data">
+                                    <div class="row columns_padding_5">
+                                        <div class="col-md-12">
+                                            <p class="comment-form-author">
+                                                <input type="text" id="name" class="form-control" autocomplete="off" name="name" placeholder="Your Name">
+                                            </p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="comment-form-email">
+                                                <input type="text" id="title" class="form-control" autocomplete="off" name="title" placeholder="Title">
+                                            </p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="comment-form-website">
+                                                <input type="file" id="image" class="form-control" name="image">
+                                            </p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="comment-form-chat">
+                                                <textarea id="comment" name="comment" class="form-control" rows="5" placeholder="Comment..."></textarea>
+                                                <input type="hidden" value="1" name="active" />
+                                            </p>
+                                        </div>
+                                        <div class="row col-md-12">
+                                            <div class="col-md-9 col-xs-6">
+                                                <p class="comment-form-email">
+                                                    <input type="text" id="captcha" class="form-control" autocomplete="off" name="captcha" placeholder="Captcha Code">
+                                                </p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 refresh-res code-i mb-0">
+                                                <div class="form-col">
+                                                    <div class="mrg code-m">
+                                                        <?php include("./contact-form/captchacode-widget.php"); ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="send-button-center">
+                                        <p class="form-submit">
+                                            <input type="hidden" name="create" value="create" />
+                                            <button id="submit" type="submit" value="create" class="theme_button round-icon round-icon-big colormain2">Add Your Feedback<i class="rt-icon2-tick-outline"></i></button>
+                                        </p>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!-- #respond -->
+
 
                         </div>
                         <!--eof .col-sm-8 (main content)-->

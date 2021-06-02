@@ -79,11 +79,11 @@ $CATEGORY = new Category($id);
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="file" id="image" class="form-control" value="<?php echo $CATEGORY->image_name; ?>" name="image">
-                                                <img src="../upload/category/<?php echo $CATEGORY->image_name; ?>" id="image" class="view-edit-img img img-responsive img-thumbnail" name="image" alt="old image">
+                                                <img src="../upload/category/<?php echo $CATEGORY->image_name; ?>" id="image" class="img img-responsive img-thumbnail" name="image" alt="old image">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <!-- <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="short_description">Short Description</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
@@ -93,7 +93,7 @@ $CATEGORY = new Category($id);
                                                 <label class="form-label">Short Description</label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
@@ -120,7 +120,6 @@ $CATEGORY = new Category($id);
     <script src="plugins/node-waves/waves.js"></script>
     <script src="js/admin.js"></script>
     <script src="js/demo.js"></script>
-    <script src="js/add-new-ad.js" type="text/javascript"></script>
 
 
     <script src="tinymce/js/tinymce/tinymce.min.js"></script>

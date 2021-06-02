@@ -40,7 +40,7 @@ $supervisors = Supervisor::all();
                             </h2>
                             <ul class="header-dropdown">
                                 <li>
-                                    <a href="create-property.php">
+                                    <a href="create-supervisor.php">
                                         <i class="material-icons">add</i>
                                     </a>
                                 </li>

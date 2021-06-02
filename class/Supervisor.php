@@ -460,7 +460,7 @@ class Supervisor
     public function checkEmptyBasicData()
     {
 
-        $query = "SELECT `name`,`email`,`district`,`city`,`address`,`phone`,`nic`, `picture`, `description`, `type` FROM `supervisor` WHERE `id` = '" . $this->id . "'";
+        $query = "SELECT `name`,`email`,`district`,`city`,`address`,`phone`,`nic`, `picture`, `description` FROM `supervisor` WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
         $result = $db->readQuery($query);
@@ -471,7 +471,7 @@ class Supervisor
                 $count++;
             }
         }
-        if ($count == '10') {
+        if ($count == '9') {
             return 1;
         } else {
             return 0;
@@ -496,13 +496,13 @@ class Supervisor
 
         $HELPER = new Helper(NULL);
 
-        $sent_from_email = 'noreply@oncallworkers.lk';
-        $sent_from_name = 'ONCALLWORKERS';
+        $sent_from_email = 'test@synotec.lk';
+        $sent_from_name = 'ON CALL WORKERS';
         $recipient_email = $this->email;
         $recipient_email_name = $this->name;
         $subject = 'Your Registration is Successful!. - ON CALL WORKERS';
-        $reply_email = 'noreply@oncallworkers.lk';
-        $reply_email_name = 'ONCALLWORKERS';
+        $reply_email = 'test@synotec.lk';
+        $reply_email_name = 'ON CALL WORKERS';
 
         $message = '<html>';
         $message .= '<body>';

@@ -11,13 +11,13 @@ if ($_POST['action'] == 'send_email_verification') {
     $result = $SUPERVISOR->update();
     $HELPER = new Helper(NULL);
 
-    $sent_from_email = 'noreply@oncallworkers.lk';
-    $sent_from_name = 'ONCALLWORKERS';
+    $sent_from_email = 'test@synotec.lk';
+    $sent_from_name = 'ON CALL WORKERS';
     $recipient_email = $SUPERVISOR->email;
     $recipient_email_name = $SUPERVISOR->name;
     $subject = 'Email Verification Code - ON CALL WORKERS';
-    $reply_email = 'noreply@oncallworkers.lk';
-    $reply_email_name = 'ONCALLWORKERS';
+    $reply_email = 'test@synotec.lk';
+    $reply_email_name = 'ON CALL WORKERS';
 
 
     // Compose a simple HTML email message
@@ -84,13 +84,13 @@ if ($_POST['action'] == 'change_email') {
     $SUPERVISOR->email = $_POST['email'];
     $result = $SUPERVISOR->update();
 
-    $sent_from_email = 'noreply@oncallworkers.lk';
-    $sent_from_name = 'ONCALLWORKERS';
+    $sent_from_email = 'test@synotec.lk';
+    $sent_from_name = 'ON CALL WORKERS';
     $recipient_email = $SUPERVISOR->email;
     $recipient_email_name = $SUPERVISOR->name;
     $subject = 'Email Verification Code - ON CALL WORKERS';
-    $reply_email = 'noreply@oncallworkers.lk';
-    $reply_email_name = 'ONCALLWORKERS';
+    $reply_email = 'test@synotec.lk';
+    $reply_email_name = 'ON CALL WORKERS';
 
 
     // Compose a simple HTML email message
@@ -98,7 +98,7 @@ if ($_POST['action'] == 'change_email') {
     $message .= '<body>';
     $message .= '<div  style="padding: 10px; max-width: 650px; background-color: #f2f1ff; border: 1px solid #d4d4d4;">';
     $message .= '<h4>Thank you for registering on www.oncallworkers.lk</h4>';
-    $message .= '<p>You must verify your email before publishing content on the website. Please copy the below code and insert into the verification page of the website!</p>';
+    $message .= '<p>You must verify your email first. Please copy the below code and insert into the verification page of the website!</p>';
     $message .= '<p>Email: ' . $SUPERVISOR->email . '</p>';
     $message .= '<hr/>';
     $message .= '<h3>Verification Code : ' . $SUPERVISOR->e_verification_code . '</h3>';

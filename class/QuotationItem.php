@@ -44,13 +44,13 @@ class QuotationItem
     {
         date_default_timezone_set('Asia/Colombo');
         $createdAt = date('Y-m-d H:i:s');
-
+$db = new Database();
         $query = "INSERT INTO `quotation_item` (`quotation`,`description`,`amount`) VALUES  ('"
             . $this->quotation . "','"
-            . $this->description . "', '"
+            . mysql_real_escape_string($this->description) . "', '"
             . $this->amount . "')";
 
-        $db = new Database();
+        
 
         $result = $db->readQuery($query);
 
@@ -81,12 +81,12 @@ class QuotationItem
     public function update()
     {
 
+        $db = new Database();
         $query = "UPDATE  `quotation_item` SET "
-            . "`description` ='" . $this->description . "', "
+            . "`description` ='" . mysql_real_escape_string($this->description) . "', "
             . "`amount` ='" . $this->amount . "' "
             . "WHERE `id` = '" . $this->id . "'";
 
-        $db = new Database();
 
         $result = $db->readQuery($query);
 

@@ -69,7 +69,14 @@ include_once(dirname(__FILE__) . '/auth.php');
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-12">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" id="short_description" class="form-control" autocomplete="off" name="short_description" required="true">
+                                            <label class="form-label">Short Description</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label for="description">Description</label>
                                     <div class="form-line">

@@ -38,8 +38,7 @@ $VALID->check($SUPERVISOR, [
     'address' => ['required' => TRUE],
     'nic' => ['required' => TRUE],
     'picture' => ['required' => TRUE],
-    'description' => ['required' => TRUE],
-    'type' => ['required' => TRUE]
+    'description' => ['required' => TRUE]
 ]);
 $checkEmail = $SUPERVISOR->checkEmail($_POST['id'], $_POST['email']);
 if (!$checkEmail || $checkEmail['id'] == $_POST['id']) {

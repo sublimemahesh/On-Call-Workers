@@ -43,7 +43,7 @@ $SUPERVISOR = new Supervisor($JOB->supervisor);
             <!-- Manage Brand -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
+                    <div class="card p-l-r-20">
                         <div class="header">
                             <h2>
                                 View Job - #<?= $JOB->id; ?>

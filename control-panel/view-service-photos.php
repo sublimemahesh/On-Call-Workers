@@ -46,7 +46,7 @@ $SERVICE = new Service($id)
                                 <h2>Create Service Photos</h2>
                                 <ul class="header-dropdown">
                                     <li class="">
-                                        <a href="manage-service.php">
+                                        <a href="manage-services.php">
                                             <i class="material-icons">list</i> 
                                         </a>
                                     </li>
@@ -101,7 +101,7 @@ $SERVICE = new Service($id)
                                         }
                                     } else {
                                         ?> 
-                                        <b style="padding-left: 15px;">No services in the database.</b> 
+                                        <b style="padding-left: 15px;">No any service photos.</b> 
                                     <?php } ?> 
 
                                 </div>

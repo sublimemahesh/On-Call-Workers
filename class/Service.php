@@ -11,18 +11,21 @@
  *
  * @author Suharshana DsW
  */
-class Service {
+class Service
+{
 
     public $id;
     public $title;
     public $image_name;
+    public $short_description;
     public $description;
     public $queue;
 
-    public function __construct($id) {
+    public function __construct($id)
+    {
         if ($id) {
 
-            $query = "SELECT `id`,`title`,`image_name`,`description`,`queue` FROM `service` WHERE `id`=" . $id;
+            $query = "SELECT `id`,`title`,`image_name`,`short_description`,`description`,`queue` FROM `service` WHERE `id`=" . $id;
 
             $db = new Database();
 
@@ -31,6 +34,7 @@ class Service {
             $this->id = $result['id'];
             $this->title = $result['title'];
             $this->image_name = $result['image_name'];
+            $this->short_description = $result['short_description'];
             $this->description = $result['description'];
             $this->queue = $result['queue'];
 
@@ -38,15 +42,17 @@ class Service {
         }
     }
 
-    public function create() {
-
-        $query = "INSERT INTO `service` (`title`,`image_name`,`description`,`queue`) VALUES  ('"
-                . $this->title . "','"
-                . $this->image_name . "', '"
-                . $this->description . "', '"
-                . $this->queue . "')";
-
+    public function create()
+    {
         $db = new Database();
+        $query = "INSERT INTO `service` (`title`,`image_name`,`short_description`,`description`,`queue`) VALUES  ('"
+            . mysql_real_escape_string($this->title) . "','"
+            . mysql_real_escape_string($this->image_name) . "', '"
+            . mysql_real_escape_string($this->short_description) . "', '"
+            . mysql_real_escape_string($this->description) . "', '"
+            . mysql_real_escape_string($this->queue) . "')";
+
+
 
         $result = $db->readQuery($query);
 
@@ -59,7 +65,8 @@ class Service {
         }
     }
 
-    public function all() {
+    public function all()
+    {
 
         $query = "SELECT * FROM `service` ORDER BY queue ASC";
         $db = new Database();
@@ -73,16 +80,16 @@ class Service {
         return $array_res;
     }
 
-    public function update() {
-
-        $query = "UPDATE  `service` SET "
-                . "`title` ='" . $this->title . "', "
-                . "`image_name` ='" . $this->image_name . "', "
-                . "`description` ='" . $this->description . "', "
-                . "`queue` ='" . $this->queue . "' "
-                . "WHERE `id` = '" . $this->id . "'";
-
+    public function update()
+    {
         $db = new Database();
+        $query = "UPDATE  `service` SET "
+            . "`title` ='" . mysql_real_escape_string($this->title) . "', "
+            . "`image_name` ='" . mysql_real_escape_string($this->image_name) . "', "
+            . "`short_description` ='" . mysql_real_escape_string($this->short_description) . "', "
+            . "`description` ='" . mysql_real_escape_string($this->description) . "', "
+            . "`queue` ='" . mysql_real_escape_string($this->queue) . "' "
+            . "WHERE `id` = '" . mysql_real_escape_string($this->id) . "'";
 
         $result = $db->readQuery($query);
 
@@ -93,8 +100,9 @@ class Service {
         }
     }
 
-    public function delete() {
-
+    public function delete()
+    {
+        $this->deleteServicePhotos();
         unlink(Helper::getSitePath() . "upload/service/" . $this->image_name);
 
         $query = 'DELETE FROM `service` WHERE id="' . $this->id . '"';
@@ -103,12 +111,23 @@ class Service {
 
         return $db->readQuery($query);
     }
+    public function deleteServicePhotos()
+    {
 
-    public function arrange($key, $img) {
+        $SERVICE_PHOTO = new ServicePhoto(NULL);
+        $photos = $SERVICE_PHOTO->getServicePhotosById($this->id);
+        foreach($photos as $photo) {
+            $SERVICE_PHOTO->id  = $photo['id'];
+            $result = $SERVICE_PHOTO->delete();
+        }
+        
+        return $result;
+    }
+    public function arrange($key, $img)
+    {
         $query = "UPDATE `service` SET `queue` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
     }
-
 }

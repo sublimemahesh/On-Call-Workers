@@ -15,7 +15,7 @@ $comConNumber = "(+94) 27 7211 300";
 $comEmail = "info@oncallworkers.lk";
 $comOwner = "Team On Call Workers";
 $customer_msg = 'Hello, and thank you for your interest in ' . $comany_name . '. We have received your enquiry, and we will get back to you as soon as possible.';
-
+$reply_email_name = 'ON CALL WORKERS';
 //----------------------- LOGO ---------------------------------
 
 $logo = $site_link . '/contact-form/img/logo.png';
@@ -32,7 +32,8 @@ $message = $_POST['message'];
 
 //------------------------ MAIL ESSENTIALS --------------------------------
 
-$webmail = "info@oncallworkers.lk";
+$webmail = "test@synotec.lk";
+// $webmail = "info@oncallworkers.lk";
 $visitorSubject = "Thank You " . $visitor_name . " - " . $comany_name;
 $companySubject = "Contact Inquiry - " . $visitor_name;
 
@@ -51,7 +52,7 @@ if ($_SESSION['CAPTCHACODE'] != $_POST['captchacode']) {
 include("mail-template.php");
 
 $HELPER = new Helper();
-$visitorMail = $HELPER->PHPMailer($webmail, $comany_name, $comEmail, $comany_name, $visitor_email, $visitor_name, $visitorSubject, $visitor_message);
+$visitorMail = $HELPER->PHPMailer($webmail, $comany_name, $comEmail, $reply_email_name, $visitor_email, $visitor_name, $visitorSubject, $visitor_message);
 
 $companyMail = $HELPER->PHPMailer($webmail, $visitor_name, $visitor_email, $visitor_name, $comEmail, $comany_name, $companySubject, $company_message);
 

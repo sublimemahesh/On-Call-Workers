@@ -90,7 +90,7 @@ if (isset($_GET['id'])) {
                                                     <th>City</th>
                                                     <td><?= $CITY->name; ?></td>
                                                 </tr>
-                                               
+
                                                 <tr>
                                                     <th>Status</th>
                                                     <td>
@@ -103,11 +103,22 @@ if (isset($_GET['id'])) {
                                                         ?>
                                                     </td>
                                                 </tr>
-                                                
+
                                             </table>
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="../upload/supervisor/profile/<?= $SUPERVISOR->picture; ?>" />
+                                            <?php
+                                            if (!empty($SUPERVISOR->picture)) {
+                                            ?>
+                                                <img src="../upload/supervisor/profile/<?= $SUPERVISOR->picture; ?>" />
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <img src="images/user1.png" />
+                                            <?php
+                                            }
+                                            ?>
+
                                         </div>
                                     </div>
                                     <div class="row">

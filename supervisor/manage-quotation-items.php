@@ -131,7 +131,7 @@ if($JOB->status > 2) {
                                         <td>Rs. <?php echo $item['amount']; ?>/= </td>
 
                                         <td class="text-center">
-                                            <a href="edit-quotation-item.php?id=<?= $item['id']; ?>" class="edit-property btn btn-sm btn-info" title="Edit Property" data-id=""> <i class="fa fa-pencil"></i></a> |
+                                            <a href="edit-quotation-item.php?id=<?= $item['id']; ?>" class="edit-property btn btn-sm btn-info" title="Edit Quotation Item" data-id=""> <i class="fa fa-pencil"></i></a> |
                                             <a class="delete-quotation-item btn btn-sm btn-danger" title="Delete Quotation Item" data-id="<?= $item['id']; ?>"> <i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>

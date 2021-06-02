@@ -81,7 +81,7 @@ $CATEGORY = new Category($id);
                                     </a>
                                 </div>
 
-                                <div>
+                                <div class="p-l-r-20">
                                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                         <thead>
                                             <tr>

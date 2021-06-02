@@ -66,12 +66,7 @@ $services = $SERVICE->all();
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="text-center">
-                                <h1>Our Services</h1>
-                                <div class="fw-heading">
-                                    <h5>We Are Specialists In These Areas</h5>
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <?php
                                 if (count($services) > 0) {
@@ -81,14 +76,14 @@ $services = $SERVICE->all();
                                             <a href="view-service.php?id=<?= $service['id']; ?>">
                                                 <div class="teaser text-center with_background">
                                                     <div class="teaser_icon highlight rounded-icon">
-                                                        <img src="upload/service/icon/<?= $service['icon']; ?>" alt="" class="service-photo"/>
+                                                        <img src="upload/service/<?= $service['image_name']; ?>" alt="" class="service-photo"/>
                                                     </div>
                                                     <h3 class="m-uppercase"><?= $service['title']; ?></h3>
                                                     <p><?php
-                                                        if (strlen($service['description']) > 100) {
-                                                            echo substr($service['description'], 0, 100) . '...';
+                                                        if (strlen($service['short_description']) > 100) {
+                                                            echo substr($service['short_description'], 0, 100) . '...';
                                                         } else {
-                                                            echo $service['description'];
+                                                            echo $service['short_description'];
                                                         }
                                                         ?></p>
                                                 </div>

@@ -11,7 +11,8 @@
  *
  * @author W j K n``
  */
-class ServicePhoto {
+class ServicePhoto
+{
 
     public $id;
     public $service;
@@ -19,7 +20,8 @@ class ServicePhoto {
     public $caption;
     public $queue;
 
-    public function __construct($id) {
+    public function __construct($id)
+    {
         if ($id) {
 
             $query = "SELECT `id`,`service`,`image_name`,`caption`,`queue` FROM `service_photo` WHERE `id`=" . $id;
@@ -38,13 +40,14 @@ class ServicePhoto {
         }
     }
 
-    public function create() {
+    public function create()
+    {
 
         $query = "INSERT INTO `service_photo` (`service`,`image_name`,`caption`,`queue`) VALUES  ('"
-                . $this->service . "','"
-                . $this->image_name . "', '"
-                . $this->caption . "', '"
-                . $this->queue . "')";
+            . $this->service . "','"
+            . $this->image_name . "', '"
+            . $this->caption . "', '"
+            . $this->queue . "')";
 
         $db = new Database();
 
@@ -59,7 +62,8 @@ class ServicePhoto {
         }
     }
 
-    public function all() {
+    public function all()
+    {
 
         $query = "SELECT * FROM `service_photo` ORDER BY queue ASC";
         $db = new Database();
@@ -73,14 +77,15 @@ class ServicePhoto {
         return $array_res;
     }
 
-    public function update() {
+    public function update()
+    {
 
         $query = "UPDATE  `service_photo` SET "
-                . "`service` ='" . $this->service . "', "
-                . "`image_name` ='" . $this->image_name . "', "
-                . "`caption` ='" . $this->caption . "', "
-                . "`queue` ='" . $this->queue . "' "
-                . "WHERE `id` = '" . $this->id . "'";
+            . "`service` ='" . $this->service . "', "
+            . "`image_name` ='" . $this->image_name . "', "
+            . "`caption` ='" . $this->caption . "', "
+            . "`queue` ='" . $this->queue . "' "
+            . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
 
@@ -93,8 +98,10 @@ class ServicePhoto {
         }
     }
 
-    public function delete() {
-
+    public function delete()
+    {
+        unlink(Helper::getSitePath() . "upload/service/gallery/" . $this->image_name);
+        unlink(Helper::getSitePath() . "upload/service/gallery/thumb/" . $this->image_name);
         $query = 'DELETE FROM `service_photo` WHERE id="' . $this->id . '"';
 
         $db = new Database();
@@ -102,7 +109,8 @@ class ServicePhoto {
         return $db->readQuery($query);
     }
 
-    public function getServicePhotosById($service) {
+    public function getServicePhotosById($service)
+    {
 
         $query = "SELECT * FROM `service_photo` WHERE `service`= $service ORDER BY queue ASC";
 
@@ -117,11 +125,11 @@ class ServicePhoto {
         return $array_res;
     }
 
-    public function arrange($key, $img) {
+    public function arrange($key, $img)
+    {
         $query = "UPDATE `service_photo` SET `queue` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);
         return $result;
     }
-
 }
