@@ -13,9 +13,9 @@
  */
 class DefaultData {
 
-    const Host = 'server273.web-hosting.com';
-    const Username = 'noreply@oncallworkers.lk';
-    const Password = 'pvx@Jyfnj*Mh';
+    const Host = 'sg1-ls7.a2hosting.com';
+    const Username = 'test@synotec.lk';
+    const Password = '-6gr.o+PA,]4';
     const Port = 465;
 
 }

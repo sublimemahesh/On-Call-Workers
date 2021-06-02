@@ -126,7 +126,7 @@ if($JOB->status > 2) {
                                             }
                                             ?> </td>
                                         <td class="text-center">
-                                            <a href="edit-quotation.php?id=<?= $quotation['id']; ?>" class="edit-property btn btn-sm btn-info" title="Edit Property" data-id=""> <i class="fa fa-pencil"></i></a> 
+                                            <a href="edit-quotation.php?id=<?= $quotation['id']; ?>" class="edit-property btn btn-sm btn-info" title="Edit Quotation" data-id=""> <i class="fa fa-pencil"></i></a> 
                                             | <a href="manage-quotation-items.php?id=<?= $quotation['id']; ?>" class="edit-property btn btn-sm btn-success" title="Manage Quotation Items" data-id=""> <i class="fa fa-list"></i></a> 
                                             <?php
                                             if ($key != 1) {

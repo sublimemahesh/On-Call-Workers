@@ -608,7 +608,7 @@ p+.progress {
 .vertical-tabs .nav>li>a {
     background-color: #fff;
     color           : #292a2e;
-    padding         : 5px 20px 5px 0;
+    padding         : 7px 20px 7px 0;
     margin-bottom   : 10px;
     position        : relative;
     border-radius   : 30px;
@@ -14077,19 +14077,49 @@ a.soc-pocket.bg-icon:hover,
 .comment-form .refreshbox {
     float: right;
 }
+
 .contact-form .refreshbox {
     float: right;
 }
+
 .contact-form-captcha {
-margin-left: 5px;
+    margin-left: 5px;
 }
+
 .worker-reg-icon {
-    width: 36px;
+    width        : 36px;
     border-radius: 50%;
 }
+
 .service-photo {
     border-radius: 50%;
+    width        : 65px;
+    margin-bottom: 20px;
 }
+
+#captchaimg {
+    margin-top  : 5px;
+    margin-right: 10px;
+}
+
+.mrg.code-m {
+    float: right;
+}
+
+.refresh-img img {
+    position: relative;
+    top     : 10px;
+}
+
+.refresh-img {
+    margin: 0;
+}
+
+#enquiry-form .col-md-8,
+#enquiry-form .col-md-4 {
+    padding: 0;
+}
+
 @media(min-width:991px) {
     .logo-padding {
         padding: 27px 0 !important;

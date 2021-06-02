@@ -132,12 +132,12 @@ $DISTRICT = new District(NULL);
                                             </p>
                                         </div>
                                         <div class="row col-md-12">
-                                            <div class="col-md-9">
+                                            <div class="col-md-9 col-sm-7 col-xs-6">
                                                 <p class="comment-form-email">
                                                     <input type="text" id="captcha" class="form-control" autocomplete="off" name="captcha" placeholder="Captcha Code">
                                                 </p>
                                             </div>
-                                            <div class="col-md-3 refresh-res code-i mb-0">
+                                            <div class="col-md-3 col-sm-5 col-xs-6 refresh-res code-i mb-0">
                                                 <div class="form-col">
                                                     <div class="mrg code-m">
                                                         <?php include("./contact-form/captchacode-widget.php"); ?>

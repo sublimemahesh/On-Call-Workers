@@ -11,7 +11,8 @@
  *
  * @author Suharshana DsW
  */
-class Comments {
+class Comments
+{
 
     public $id;
     public $name;
@@ -21,7 +22,8 @@ class Comments {
     public $is_active;
     public $queue;
 
-    public function __construct($id) {
+    public function __construct($id)
+    {
         if ($id) {
 
             $query = "SELECT `id`,`name`,`title`,`image_name`,`comment`,`is_active`,`queue` FROM `comments` WHERE `id`=" . $id;
@@ -42,17 +44,18 @@ class Comments {
         }
     }
 
-    public function create() {
-
-        $query = "INSERT INTO `comments` (`name`,`title`,`image_name`,`comment`,`is_active`,`queue`) VALUES  ('"
-                . $this->name . "','"
-                . $this->title . "','"
-                . $this->image_name . "', '"
-                . $this->comment . "', '"
-                . $this->is_active . "', '"
-                . $this->queue . "')";
-
+    public function create()
+    {
         $db = new Database();
+        $query = "INSERT INTO `comments` (`name`,`title`,`image_name`,`comment`,`is_active`,`queue`) VALUES  ('"
+            . mysql_real_escape_string($this->name) . "','"
+            . mysql_real_escape_string($this->title) . "','"
+            . mysql_real_escape_string($this->image_name) . "', '"
+            . mysql_real_escape_string($this->comment) . "', '"
+            . $this->is_active . "', '"
+            . $this->queue . "')";
+
+
 
         $result = $db->readQuery($query);
 
@@ -65,7 +68,8 @@ class Comments {
         }
     }
 
-    public function all() {
+    public function all()
+    {
 
         $query = "SELECT * FROM `comments` ORDER BY queue ASC";
         $db = new Database();
@@ -79,18 +83,19 @@ class Comments {
         return $array_res;
     }
 
-    public function update() {
-
-        $query = "UPDATE  `comments` SET "
-                . "`name` ='" . $this->name . "', "
-                . "`title` ='" . $this->title . "', "
-                . "`image_name` ='" . $this->image_name . "', "
-                . "`comment` ='" . $this->comment . "', "
-                . "`is_active` ='" . $this->is_active . "', "
-                . "`queue` ='" . $this->queue . "' "
-                . "WHERE `id` = '" . $this->id . "'";
-
+    public function update()
+    {
         $db = new Database();
+        $query = "UPDATE  `comments` SET "
+            . "`name` ='" . mysql_real_escape_string($this->name) . "', "
+            . "`title` ='" . mysql_real_escape_string($this->title) . "', "
+            . "`image_name` ='" . mysql_real_escape_string($this->image_name) . "', "
+            . "`comment` ='" . mysql_real_escape_string($this->comment) . "', "
+            . "`is_active` ='" . $this->is_active . "', "
+            . "`queue` ='" . $this->queue . "' "
+            . "WHERE `id` = '" . $this->id . "'";
+
+
 
         $result = $db->readQuery($query);
 
@@ -100,8 +105,9 @@ class Comments {
             return FALSE;
         }
     }
-    
-        public function delete() {
+
+    public function delete()
+    {
 
         $query = 'DELETE FROM `comments` WHERE id="' . $this->id . '"';
 
@@ -109,8 +115,9 @@ class Comments {
 
         return $db->readQuery($query);
     }
-    
-        public function activeComments() {
+
+    public function activeComments()
+    {
 
         $query = "SELECT * FROM `comments` WHERE is_active = '1' ORDER BY `queue` ASC";
         $db = new Database();
@@ -123,8 +130,9 @@ class Comments {
 
         return $array_res;
     }
-    
-          public function pendingComments() {
+
+    public function pendingComments()
+    {
 
         $query = "SELECT * FROM `comments` WHERE is_active = '0'";
         $db = new Database();
@@ -137,9 +145,10 @@ class Comments {
 
         return $array_res;
     }
-    
-    
-     public function arrange($key, $img) {
+
+
+    public function arrange($key, $img)
+    {
         $query = "UPDATE `comments` SET `queue` = '" . $key . "'  WHERE id = '" . $img . "'";
         $db = new Database();
         $result = $db->readQuery($query);

@@ -1,6 +1,6 @@
 //loging validation
 $(document).ready(function () {
-alert(1);
+
     $('#login').click(function (event) {
         event.preventDefault();
 
@@ -52,7 +52,6 @@ alert(1);
                             showConfirmButton: false
                         });
                     } else {
-                        alert(111);
                         if ($('#remember').is(':checked')) {
                             
                             var username = $('#login_email').val();

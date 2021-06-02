@@ -11,19 +11,19 @@
  *
  * @author Suharshana DsW
  */
-class Page {
+class Page
+{
 
     public $id;
     public $title;
     public $description;
     public $image_name;
 
-    public function __construct($id) {
+    public function __construct($id)
+    {
         if ($id) {
-
-            $query = "SELECT `id`,`title`,`description`,`image_name` FROM `pages` WHERE `id`=" . $id;
-
             $db = new Database();
+            $query = "SELECT `id`,`title`,`description`,`image_name` FROM `pages` WHERE `id`=" . $id;
 
             $result = mysql_fetch_array($db->readQuery($query));
 
@@ -37,16 +37,17 @@ class Page {
         }
     }
 
-    public function create() {
-
-        $query = "INSERT INTO `pages` (`title`,`description`,`image_name`) VALUES  ('"
-               
-                . $this->title . "','"
-                . $this->description . "', '"
-                . $this->image_name . "')";
-
+    public function create()
+    {
 
         $db = new Database();
+        $query = "INSERT INTO `pages` (`title`,`description`,`image_name`) VALUES  ('"
+
+            . mysql_real_escape_string($this->title) . "','"
+            . mysql_real_escape_string($this->description) . "', '"
+            . mysql_real_escape_string($this->image_name) . "')";
+
+
 
         $result = $db->readQuery($query);
 
@@ -59,7 +60,8 @@ class Page {
         }
     }
 
-    public function all() {
+    public function all()
+    {
 
         $query = "SELECT * FROM `pages`";
         $db = new Database();
@@ -73,13 +75,14 @@ class Page {
         return $array_res;
     }
 
-    public function update() {
+    public function update()
+    {
 
         $query = "UPDATE  `pages` SET "
-                . "`title` ='" . $this->title . "', "
-                . "`description` ='" . $this->description . "', "
-                . "`image_name` ='" . $this->image_name . "' "
-                . "WHERE `id` = '" . $this->id . "'";
+            . "`title` ='" . mysql_real_escape_string($this->title) . "', "
+            . "`description` ='" . mysql_real_escape_string($this->description) . "', "
+            . "`image_name` ='" . mysql_real_escape_string($this->image_name) . "' "
+            . "WHERE `id` = '" . $this->id . "'";
 
         $db = new Database();
 
@@ -91,8 +94,9 @@ class Page {
             return FALSE;
         }
     }
-    
-    public function delete() {
+
+    public function delete()
+    {
 
         $query = 'DELETE FROM `pages` WHERE id="' . $this->id . '"';
         unlink(Helper::getSitePath() . "upload/page/" . $this->image_name);
@@ -101,11 +105,4 @@ class Page {
 
         return $db->readQuery($query);
     }
-    
-    
-    
- 
-    
-    
-
 }

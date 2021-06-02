@@ -35,7 +35,7 @@
         <div class="navbar-header">
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="index.php">SYNOTEC HOLDINGS - WEB SITE CONTROL PANEL</a>
+            <a class="navbar-brand" href="index.php">On Call Workers - Admin</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -275,66 +275,6 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li class="qqq">
-                    <a href="create-slider.php" class="">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Slider</span>
-                    </a>
-
-                </li>
-                <!-- <li>
-                    <a href="create-ads-slider.php" class="">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Advertisement Slider</span>
-                    </a>
-                </li> -->
-                <!-- <li class="qqq">
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Offer</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="create-offer.php">
-                                <i class="material-icons">add</i>
-                                <span>Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="manage-offer.php">
-                                <i class="material-icons">list</i>
-                                <span>Manage</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="arrange-offer.php">
-                                <i class="material-icons">compare_arrows</i>
-                                <span>Arrange</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>-->
-                <li class="qqq">
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Pages</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="create-pages.php">
-                                <i class="material-icons">add</i>
-                                <span>Add new</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="manage-pages.php">
-                                <i class="material-icons">list</i>
-                                <span>Manage</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">chevron_right</i>
@@ -375,7 +315,114 @@
                 </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">location_on</i>
+                        <i class="material-icons">chevron_right</i>
+                        <span>Supervisors</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="create-supervisor.php">
+                                <i class="material-icons">add</i>
+                                <span>Add New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-supervisors.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="qqq">
+                    <a href="manage-workers.php" class="">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Workers</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Services</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="create-service.php">
+                                <i class="material-icons">add</i>
+                                <span>Add New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-services.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="arrange-services.php">
+                                <i class="material-icons">compare_arrows</i>
+                                <span>Arrange</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Feedback</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="create-comment.php">
+                                <i class="material-icons">add</i>
+                                <span>Add New</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-comments.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="arrange-comments.php">
+                                <i class="material-icons">compare_arrows</i>
+                                <span>Arrange</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="qqq">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Pages</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="create-pages.php">
+                                <i class="material-icons">add</i>
+                                <span>Add new</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manage-pages.php">
+                                <i class="material-icons">list</i>
+                                <span>Manage</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="qqq">
+                    <a href="create-slider.php" class="">
+                        <i class="material-icons">chevron_right</i>
+                        <span>Main Slider</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">chevron_right</i>
                         <span>District</span>
                     </a>
                     <ul class="ml-menu">
@@ -425,85 +472,8 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Supervisor</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="create-supervisor.php">
-                                <i class="material-icons">add</i>
-                                <span>Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="manage-supervisors.php">
-                                <i class="material-icons">list</i>
-                                <span>Manage</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="qqq">
-                    <a href="manage-workers.php" class="">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Workers</span>
-                    </a>
+                
 
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Service</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="create-service.php">
-                                <i class="material-icons">add</i>
-                                <span>Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="manage-services.php">
-                                <i class="material-icons">list</i>
-                                <span>Manage</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="arrange-services.php">
-                                <i class="material-icons">compare_arrows</i>
-                                <span>Arrange</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">chevron_right</i>
-                        <span>Guest Comments</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="create-comment.php">
-                                <i class="material-icons">add</i>
-                                <span>Add New</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="manage-comments.php">
-                                <i class="material-icons">list</i>
-                                <span>Manage</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="arrange-comments.php">
-                                <i class="material-icons">compare_arrows</i>
-                                <span>Arrange</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </div>
         <!-- #Menu -->

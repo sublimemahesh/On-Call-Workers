@@ -8,6 +8,7 @@ if (isset($_POST['create'])) {
     $VALID = new Validator();
 
     $SERVICE->title = $_POST['title'];
+    $SERVICE->short_description = $_POST['short_description'];
     $SERVICE->description = $_POST['description'];
 
     $dir_dest = '../../upload/service/';
@@ -36,6 +37,7 @@ if (isset($_POST['create'])) {
     $SERVICE->image_name = $imgName;
     $VALID->check($SERVICE, [
         'title' => ['required' => TRUE],
+        'short_description' => ['required' => TRUE],
         'description' => ['required' => TRUE],
         'image_name' => ['required' => TRUE]
     ]);
@@ -91,10 +93,12 @@ if (isset($_POST['update'])) {
 
     $SERVICE->image_name = $_POST['oldImageName'];
     $SERVICE->title = $_POST['title'];
+    $SERVICE->short_description = $_POST['short_description'];
     $SERVICE->description = $_POST['description'];
 
     $VALID->check($SERVICE, [
         'title' => ['required' => TRUE],
+        'short_description' => ['required' => TRUE],
         'description' => ['required' => TRUE],
         'image_name' => ['required' => TRUE]
     ]);

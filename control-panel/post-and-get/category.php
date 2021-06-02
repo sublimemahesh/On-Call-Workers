@@ -9,7 +9,6 @@ if (isset($_POST['create'])) {
 
     $CATEGORY->name = $_POST['name'];
     $CATEGORY->image_name = $_POST['image_name'];
-    $CATEGORY->short_description = $_POST['short_description'];
 
     $dir_dest = '../../upload/category/';
 
@@ -37,7 +36,6 @@ if (isset($_POST['create'])) {
 
     $VALID->check($CATEGORY, [
         'name' => ['required' => TRUE],
-        'short_description' => ['required' => TRUE],
         'image_name' => ['required' => TRUE]
     ]);
 
@@ -91,14 +89,10 @@ if (isset($_POST['update'])) {
 
     $CATEGORY->image_name = $_POST['oldImageName'];
     $CATEGORY->name = $_POST['name'];
-//    $CATEGORY->image_name = $_POST['image_name'];
-    $CATEGORY->short_description = $_POST['short_description'];
 
     $VALID = new Validator();
     $VALID->check($CATEGORY, [
-        'name' => ['required' => TRUE],
-        'short_description' => ['required' => TRUE],
-        // 'image_name' => ['required' => TRUE]
+        'name' => ['required' => TRUE]
     ]);
 
     if ($VALID->passed()) {

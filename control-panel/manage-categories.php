@@ -72,7 +72,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <!-- <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                             <label for="short_description">Short Description</label>
                                         </div>
                                         <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
@@ -82,7 +82,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                                     <label class="form-label">Short Description</label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="row clearfix">
                                         <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
@@ -111,7 +111,7 @@ include_once(dirname(__FILE__) . '/auth.php');
                                 }
                                 ?>
 
-                                <div>
+                                <div class="p-l-r-20">
                                     <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                         <thead>
                                             <tr>

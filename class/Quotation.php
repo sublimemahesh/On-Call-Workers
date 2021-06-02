@@ -47,14 +47,14 @@ class Quotation
         date_default_timezone_set('Asia/Colombo');
         $createdAt = date('Y-m-d H:i:s');
 
+        $db = new Database();
         $query = "INSERT INTO `quotation` (`created_at`,`job`,`supervisor`,`title`,`status`) VALUES  ('"
             . $createdAt . "','"
-            . $this->job . "','"
-            . $this->supervisor . "', '"
-            . $this->title . "', '"
+            . mysql_real_escape_string($this->job) . "','"
+            . mysql_real_escape_string($this->supervisor) . "', '"
+            . mysql_real_escape_string($this->title) . "', '"
             . 0 . "')";
 
-        $db = new Database();
 
         $result = $db->readQuery($query);
 
@@ -84,13 +84,13 @@ class Quotation
 
     public function update()
     {
-
+  $db = new Database();
         $query = "UPDATE  `quotation` SET "
-            . "`title` ='" . $this->title . "', "
-            . "`status` ='" . $this->status . "' "
+            . "`title` ='" . mysql_real_escape_string($this->title) . "', "
+            . "`status` ='" . mysql_real_escape_string($this->status) . "' "
             . "WHERE `id` = '" . $this->id . "'";
 
-        $db = new Database();
+      
 
         $result = $db->readQuery($query);
 

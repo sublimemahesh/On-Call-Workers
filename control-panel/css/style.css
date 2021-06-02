@@ -11174,3 +11174,6 @@ html.ie11 .bs-searchbox .form-control {
 .back-btn{
     margin-left: 27px;
 }
+.p-l-r-20 {
+    padding: 0 20px;
+}

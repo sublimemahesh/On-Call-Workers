@@ -104,7 +104,20 @@ $DISTRICT = new District(NULL);
                                 <p class="contact-form-phone">
                                     <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder="Phone Number">
                                 </p>
-
+                                <div class="row col-md-12">
+                                    <div class="col-md-8 col-sm-7 col-xs-6">
+                                        <p class="comment-form-email">
+                                            <input type="text" id="captcha" class="form-control" autocomplete="off" name="captcha" placeholder="Captcha Code">
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4 col-sm-5 col-xs-6 refresh-res code-i mb-0">
+                                        <div class="form-col">
+                                            <div class="mrg code-m">
+                                                <?php include("./contact-form/captchacode-widget.php"); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-sm-12">
 

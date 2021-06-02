@@ -10,7 +10,7 @@ $SUPERVISOR = new Supervisor($_SESSION["m_id"]);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Change Password || Sri Lanka Properties</title>
+    <title>Change Password || On Call Workers</title>
     <!-- Favicon Icon Css -->
     <link rel="icon" href="../images/realstate/sl-property-fav.png" type="image/x-icon">
     <!-- Animation CSS -->
