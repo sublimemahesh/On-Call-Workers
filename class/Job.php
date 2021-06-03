@@ -24,6 +24,7 @@ class Job
     public $name;
     public $email;
     public $phone;
+    public $nature_of_the_work;
     public $status;
     public $supervisor;
     public $assignedAt;
@@ -48,6 +49,7 @@ class Job
             $this->name = $result['name'];
             $this->email = $result['email'];
             $this->phone = $result['phone'];
+            $this->nature_of_the_work = $result['nature_of_the_work'];
             $this->status = $result['status'];
             $this->supervisor = $result['supervisor'];
             $this->assignedAt = $result['assigned_at'];
@@ -72,6 +74,7 @@ class Job
             . "`name`,"
             . "`email`,"
             . "`phone`,"
+            . "`nature_of_the_work`,"
             . "`status`"
             . ") VALUES  ('"
             . $createdAt . "','"
@@ -83,6 +86,7 @@ class Job
             . mysql_real_escape_string($this->name) . "', '"
             . mysql_real_escape_string($this->email) . "', '"
             . mysql_real_escape_string($this->phone) . "', '"
+            . mysql_real_escape_string($this->nature_of_the_work) . "', '"
             . 0 . "')";
 
 
@@ -219,6 +223,7 @@ class Job
             . "`name` ='" . mysql_real_escape_string($this->name) . "', "
             . "`email` ='" . mysql_real_escape_string($this->email) . "', "
             . "`phone` ='" . mysql_real_escape_string($this->phone) . "', "
+            . "`phone` ='" . mysql_real_escape_string($this->nature_of_the_work) . "', "
             . "`status` ='" . 0 . "' "
             . "WHERE `id` = '" . $this->id . "'";
 

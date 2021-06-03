@@ -89,18 +89,26 @@ $(document).ready(function () {
                         swal({
                             title: "Success!",
                             type: 'success',
-                            text: "Supervisor details were saved successfully!.....!",
+                            text: "Supervisor details were saved successfully...!",
                             timer: 2000,
                             showConfirmButton: false
                         })
                         setTimeout(function () {
                             location.reload();
                         }, 2000);
+                    } else if (result == 'email_exist') {
+                        swal({
+                            title: "Error!",
+                            type: 'error',
+                            text: "This email was already exist...!",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
                     } else {
                         swal({
                             title: "Error!",
                             type: 'error',
-                            text: "There was an error. Please try again later!.....!",
+                            text: "There was an error. Please try again later...!",
                             timer: 2000,
                             showConfirmButton: false
                         });
@@ -270,6 +278,6 @@ $(document).ready(function () {
         })
 
     })
-    
+
 
 })

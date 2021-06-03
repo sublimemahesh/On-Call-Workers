@@ -107,7 +107,7 @@ $SERVICE = new Service($id);
                                                 }
 
                                                 ?>
-                                                
+
                                             </ul>
                                         </div>
                                         <div class="col-lg-8 col-md-7 col-sm-12">
@@ -168,9 +168,9 @@ $SERVICE = new Service($id);
                                                     <!-- .entry-header -->
 
                                                     <?= $SERVICE->description; ?>
-
-
-
+                                                    <div class="get-a-quote-section text-right">
+                                                        <a href="enquiry.php" class="theme_button round-icon round-icon-big colormain2">GET A QUOTE<i class="rt-icon2-tick-outline"></i></a>
+                                                    </div>
                                                 </div><!-- .item-content.entry-content -->
                                             </article>
 

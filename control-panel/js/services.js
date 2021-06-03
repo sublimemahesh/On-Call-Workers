@@ -4,7 +4,7 @@ $(document).ready(function () {
     $("#create").click(function (event) {
         event.preventDefault();
         tinymce.triggerSave();
-alert(111);
+
         //Start loading
         $('.box').jmspinner('large');
         $('.box').addClass('well');

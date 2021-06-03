@@ -100,6 +100,10 @@ $SUPERVISOR = new Supervisor($JOB->supervisor);
                                                     <td><?= $JOB->phone; ?></td>
                                                 </tr>
                                                 <tr>
+                                                    <th>Nature of the work</th>
+                                                    <td><?= ucfirst($JOB->nature_of_the_work); ?></td>
+                                                </tr>
+                                                <tr>
                                                     <th>Status</th>
                                                     <td>
                                                         <?php
