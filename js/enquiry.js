@@ -83,6 +83,15 @@ $('#submit').click(function (event) {
             timer: 2000,
             showConfirmButton: false
         });
+    } else if (!$('#nature_of_the_work').val() || $('#nature_of_the_work').val().length === 0) {
+        swal({
+            title: 'Error..!',
+            text: 'Please select the nature of the work...!',
+            type: 'error',
+            showCancelButton: false,
+            timer: 2000,
+            showConfirmButton: false
+        });
     } else if (!$('#captcha').val() || $('#captcha').val().length === 0) {
         swal({
             title: 'Error..!',

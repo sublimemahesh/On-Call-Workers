@@ -14120,6 +14120,28 @@ a.soc-pocket.bg-icon:hover,
     padding: 0;
 }
 
+.get-a-quote-section .theme_button.round-icon.colormain2 i:hover {
+    background-color: #000;
+    color           : #fff;
+    font-weight     : 700;
+}
+
+.get-a-quote-section .theme_button.round-icon.colormain2:hover i {
+    background-color: #000;
+    color           : #fff;
+    font-weight     : 700;
+}
+
+.get-a-quote-section .theme_button.round-icon.colormain2:hover {
+    background-color: #e2001a;
+    color           : #fff;
+    font-weight     : 700;
+}
+
+.ds .grey {
+    text-shadow: 1px 1px #000 !important;
+}
+
 @media(min-width:991px) {
     .logo-padding {
         padding: 27px 0 !important;

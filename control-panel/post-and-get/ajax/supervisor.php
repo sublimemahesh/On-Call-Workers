@@ -3,26 +3,32 @@
 include_once(dirname(__FILE__) . '/../../../class/include.php');
 
 if (isset($_POST['create'])) {
-
     $SUPERVISOR = new Supervisor(NULL);
-    $VALID = new Validator();
+    $checkEmail = $SUPERVISOR->checkEmailIsExist($_POST['email']);
+    if (!$checkEmail) {
+        
+        $VALID = new Validator();
 
-    $SUPERVISOR->name = $_POST['name'];
-    $SUPERVISOR->phone = $_POST['phone'];
-    $SUPERVISOR->email = $_POST['email'];
-    $SUPERVISOR->nic = $_POST['nic'];
-    $SUPERVISOR->address = $_POST['address'];
-    $SUPERVISOR->district = $_POST['district'];
-    $SUPERVISOR->city = $_POST['city'];
+        $SUPERVISOR->name = $_POST['name'];
+        $SUPERVISOR->phone = $_POST['phone'];
+        $SUPERVISOR->email = $_POST['email'];
+        $SUPERVISOR->nic = $_POST['nic'];
+        $SUPERVISOR->address = $_POST['address'];
+        $SUPERVISOR->district = $_POST['district'];
+        $SUPERVISOR->city = $_POST['city'];
 
-    $res = $SUPERVISOR->create();
-    if ($res) {
-        $SUPERVISOR->sendRegistrationEmail();
-        $result = 'success';
+        $res = $SUPERVISOR->create();
+        if ($res) {
+            $SUPERVISOR->sendRegistrationEmail();
+            $result = 'success';
+        } else {
+            $result = 'error';
+        }
+
     } else {
-        $result = 'error';
+        $result = 'email_exist';
     }
-
+    
     echo json_encode($result);
     exit();
 }
@@ -79,13 +85,13 @@ if ($_POST['option'] == "INACTIVEMEMBER") {
 }
 if ($_POST['option'] == "GETALLSUPERVISORS") {
     $supervisors = Supervisor::all();
-// foreach($supervisors as $supervisor) {
+    // foreach($supervisors as $supervisor) {
 
-// }
-// $arr1 = array();
-// $arr1 = ['#ff0000': 'Red'],
-// '#00ff00': 'Green',
-// '#0000ff': 'Blue'];
+    // }
+    // $arr1 = array();
+    // $arr1 = ['#ff0000': 'Red'],
+    // '#00ff00': 'Green',
+    // '#0000ff': 'Blue'];
     echo json_encode($supervisors);
     exit;
 }

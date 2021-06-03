@@ -15,6 +15,7 @@ if (isset($_POST['create'])) {
         $JOB->name = $_POST['name'];
         $JOB->phone = $_POST['phone'];
         $JOB->email = $_POST['email'];
+        $JOB->nature_of_the_work = $_POST['nature_of_the_work'];
 
         $res = $JOB->create();
         if ($res) {

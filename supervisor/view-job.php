@@ -73,6 +73,10 @@ $SUBCAT = new SubCategory($JOB->sub_category);
                                     <td><?= $JOB->createdAt; ?></td>
                                 </tr>
                                 <tr>
+                                    <th>Assigned At</th>
+                                    <td><?= $JOB->assignedAt; ?></td>
+                                </tr>
+                                <tr>
                                     <th>Category</th>
                                     <td><?= $CATEGORY->name; ?></td>
                                 </tr>
@@ -99,6 +103,10 @@ $SUBCAT = new SubCategory($JOB->sub_category);
                                 <tr>
                                     <th>Phone Number</th>
                                     <td><?= $JOB->phone; ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Nature of the work</th>
+                                    <td><?= ucfirst($JOB->nature_of_the_work); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Status</th>
@@ -135,7 +143,7 @@ $SUBCAT = new SubCategory($JOB->sub_category);
                                 ?>
                                     <p><b>Title: <?= $quotation['title']; ?></b></p>
                                     <p><b>Created At: <?= $quotation['created_at']; ?></b></p>
-<br />
+                                    <br />
                                     <table class="table table-striped table-hover">
                                         <tr>
                                             <td>Id</td>
