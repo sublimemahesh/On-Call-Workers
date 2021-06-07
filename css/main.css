@@ -3777,6 +3777,10 @@ section .cs .theme_button:hover {
     .page_header_wrapper .col-sm-12 {
         min-height: 0
     }
+    .worker-reg-icon {
+        top          : -5px;
+        position     : relative;
+    }
 }
 
 .boxed .header_2 .logo {
@@ -3987,7 +3991,7 @@ a.logo.vertical_logo img {
 .top-menu-buttons {
     width  : 375px;
     float  : right;
-    padding: 43px 0 29px;
+    padding: 35px 0 29px;
 }
 
 .header_2 .top-menu-buttons {
@@ -4547,10 +4551,11 @@ section .intro_section .slide_description_wrapper {
 }
 
 .intro_section .top-right-contact-block .contact-phone {
-    font-size  : 30px;
+    font-size  : 35px;
     display    : block;
     padding-top: 7px;
-    color      : #fff
+    color      : #fff;
+    font-weight: 600;
 }
 
 .intro_section .top-right-contact-block .contact-phone span {
@@ -4646,7 +4651,7 @@ section .intro_section .slide_description_wrapper {
 }
 
 .intro_section .top-corner {
-    max-width: 300px
+    max-width: 350px
 }
 
 .intro_section .top-corner div {
@@ -5196,6 +5201,7 @@ section .intro_section .slide_description_wrapper {
     #more-li {
         display: none
     }
+
 }
 
 .sf-menu i[class] {
@@ -8884,6 +8890,11 @@ aside .widget_tag_cloud a:hover {
 @media(max-width:500px) {
     .hidden-xxs {
         display: none
+    }
+
+    .worker-reg-icon {
+        top          : -10px;
+        position     : relative;
     }
 }
 
@@ -14087,7 +14098,7 @@ a.soc-pocket.bg-icon:hover,
 }
 
 .worker-reg-icon {
-    width        : 36px;
+    width        : 50px;
     border-radius: 50%;
 }
 
