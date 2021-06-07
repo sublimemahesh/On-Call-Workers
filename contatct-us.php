@@ -73,7 +73,7 @@ include './class/include.php';
                                 </div>
 
                                 <p>
-                                    No 321/F, Utuwankanda Rd, Thalawatugoda.
+                                    No.1079 B, Kumaragewatte Rd, Thalawatugoda.
                                 </p>
 
                             </div>
@@ -97,7 +97,7 @@ include './class/include.php';
                                     <h3>Contact Us</h3>
                                 </div>
                                 <a href="tel:+942775875">
-                                    <p class="footer-text">2 775 875</p>
+                                    <p class="footer-text">0115 92 91 91</p>
                                 </a>
                             </div>
                         </div>

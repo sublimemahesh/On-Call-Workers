@@ -5,7 +5,7 @@
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-782"><a href="http://twitter.com/" class="social-icon bg-icon rounded-icon soc-twitter"></a></li>
             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-784"><a href="http://skype.com/" class="social-icon bg-icon rounded-icon soc-skype"></a></li>
         </ul>
-        <span class="contact-phone"> <span>2 775 875</span></span>
+        <span class="contact-phone"> <span>0115 92 91 91</span></span>
         <span class="contact-email">Call Us 24/7 or email: <a href="#"><span class="__cf_email__" data-cfemail="#">help@oncallworkers.lk</span></a></span>
     </div>
     <div class="main-slider__scroll m-uppercase" id="main-slider__scroll">

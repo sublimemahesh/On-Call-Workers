@@ -73,6 +73,13 @@ $DISTRICT = new District(NULL);
 
                                     </select>
                                 </p>
+                                <p class="contact-form-topic">
+                                    <select class="form-control" name="nature_of_the_work" id="nature_of_the_work">
+                                        <option value=""> --Please Select the Nature of the Work -- </option>
+                                        <option value="day basis"> Day Basis </option>
+                                        <option value="contract"> Contract</option>
+                                    </select>
+                                </p>
                                 <p class="contact-form-message">
                                     <textarea aria-required="true" rows="8" cols="45" name="description" id="description" class="form-control" placeholder="How we may help you"></textarea>
                                 </p>
@@ -104,13 +111,7 @@ $DISTRICT = new District(NULL);
                                 <p class="contact-form-phone">
                                     <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control" placeholder="Phone Number">
                                 </p>
-                                <p class="contact-form-topic">
-                                    <select class="form-control" name="nature_of_the_work" id="nature_of_the_work">
-                                        <option value=""> --Please Select the Nature of the Work -- </option>
-                                        <option value="day basis"> Day Basis </option>
-                                        <option value="contract"> Contract</option>
-                                    </select>
-                                </p>
+                                
                                 <div class="row col-md-12">
                                     <div class="col-md-8 col-sm-7 col-xs-6">
                                         <p class="comment-form-email">
