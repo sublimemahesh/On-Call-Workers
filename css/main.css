@@ -2469,6 +2469,10 @@ body.boxed {
         padding-left : 10px;
         padding-right: 10px
     }
+
+    .slide_description_wrapper .logo {
+        right: 17px;
+    }
 }
 
 .boxed #box_wrapper.container {
@@ -3777,9 +3781,10 @@ section .cs .theme_button:hover {
     .page_header_wrapper .col-sm-12 {
         min-height: 0
     }
+
     .worker-reg-icon {
-        top          : -5px;
-        position     : relative;
+        top     : -5px;
+        position: relative;
     }
 }
 
@@ -8893,8 +8898,8 @@ aside .widget_tag_cloud a:hover {
     }
 
     .worker-reg-icon {
-        top          : -10px;
-        position     : relative;
+        top     : -10px;
+        position: relative;
     }
 }
 
@@ -14151,10 +14156,16 @@ a.soc-pocket.bg-icon:hover,
 
 .ds .grey {
     text-shadow: 1px 1px #000 !important;
+    font-weight: 700;
 }
 
 .intro_section .slide_description_wrapper h3 {
-    text-shadow: 1px 1px #000 !important;
+    text-shadow: 2px 2px #000 !important;
+}
+
+.footer-phone {
+    font-size  : 45px;
+    font-weight: 700;
 }
 
 @media(min-width:991px) {

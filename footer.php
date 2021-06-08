@@ -6,7 +6,7 @@
                     <p><img src="images/logo.png" alt=""></p>
                     <p>No.1079 B, Kumaragewatte Rd, Thalawatugoda.</p>
                  
-                    <a href="tel:+942775875"> <p class="footer-text">0115 92 91 91</p></a>
+                    <a href="tel:+942775875"> <p class="footer-text footer-phone">0115 92 91 91</p></a>
                     <ul id="menu-social-menu-short-footer" class="social-navigation social-footer">
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-783"><a href="#" class="social-icon bg-icon rounded-icon soc-facebook"></a></li>
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-782"><a href="#" class="social-icon bg-icon rounded-icon soc-twitter"></a></li>
